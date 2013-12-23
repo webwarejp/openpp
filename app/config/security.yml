@@ -1,5 +1,6 @@
 security:
     encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
@@ -7,33 +8,92 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        # in memory provider
         in_memory:
             memory:
                 users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                    user:  { password: "%in_memory.user.pass%",  roles: [ 'ROLE_USER' ] }
+                    admin: { password: "%in_memory.admin.pass%", roles: [ 'ROLE_ADMIN' ] }
+
+        # FpOpenIdBundle
+        openid_user_provider:
+            id: acme.user.openid_user_manager # the name of the service
+
+        # FOSUserBundle
+        fos_user_provider:
+            id: fos_user.user_provider.username
+
+        #fos_facebook_provider:
+        #      id: my.facebook.user
+        # 
+        # 連なったプロバイダ
+        my_chain_provider:
+            chain:
+                providers: [ fos_user_provider, in_memory ] #, fos_facebook_provider ]     
 
     firewalls:
-        dev:
+        # 認証なし
+        resource:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
-
-        secured_area:
-            pattern:    ^/demo/secured/
+        admin:
+            pattern:          /admin/(.*)
             form_login:
-                check_path: _security_check
-                login_path: _demo_login
+                provider:       fos_user_provider
+                login_path:     admin_login
+                check_path:     admin_login_check
+                use_forward:    true
+                always_use_default_target_path: false
+                default_target_path:  acme_admin_homepage
+                target_path_parameter:          _target_path
+                failure_path:   null
+                use_referer:    true
             logout:
-                path:   _demo_logout
-                target: _demo
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
+                path:           admin_logout
+                target:         admin_login
+            anonymous:        true
+            context:          application
+        # フロント側
+        main:
+            pattern: ^/
+            form_login:
+                provider:      my_chain_provider
+                csrf_provider: form.csrf_provider
+            logout:       true
+            anonymous:    true
+            context:      application
+            switch_user:  true
+
+            #OpenID
+            fp_openid:
+                create_user_if_not_exists: true # so createUserFromIdentity method will be called
+                provider: openid_user_provider # cf below
+                # previously we used 'contact/email' field. So we have to request it!
+                # Please note that all OpenID providers may not be able to provide all fields.
+                # check the desired provider documentation
+                required_attributes:
+                    - contact/email 
+
+            # FOSFacebookBundle
+            #fos_facebook:
+            #     app_url: "http://apps.facebook.com/appName/"
+            #     server_url: "http://localhost/facebookApp/"
+            #     login_path: /login
+            #     check_path: /login_check
+            #     default_target_path: /
+            #     provider: fos_facebook_provider
 
     access_control:
-        - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/mypage/, role: ROLE_USER }
+        - { path: ^/facebook/, role: ROLE_FACEBOOK }
+        - { path: ^/login_openid$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/secured_area, role: IS_AUTHENTICATED_OPENID }
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+

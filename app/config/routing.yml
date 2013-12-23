@@ -1,0 +1,27 @@
+acme_admin:
+    resource: "@AcmeAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_toppage:
+    resource: "@AcmeToppageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_user:
+    resource: "@AcmeUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user_bundle:
+    resource: "@AcmeUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fp_openid_security:
+    resource: "@FpOpenIdBundle/Resources/config/routing/security.xml"
+
+# app/config/routing.yml
+# fos facebook bundle
+#_security_check:
+#    pattern:  /login_check
+#_security_logout:
+#    pattern:  /logout
+#fos_facebook_channel:
+#    resource: "@FOSFacebookBundle/Resources/config/routing.xml"

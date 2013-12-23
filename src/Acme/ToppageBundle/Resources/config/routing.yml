@@ -1,0 +1,4 @@
+toppage:
+    pattern:   /
+    defaults:  { _controller: AcmeToppageBundle:Default:index }
+
