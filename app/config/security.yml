@@ -32,17 +32,15 @@ security:
                 providers: [ fos_user_provider, in_memory ] #, fos_facebook_provider ]     
 
     firewalls:
-        # 認証なし
-        resource:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
         admin:
-            pattern:          /admin/(.*)
+            #pattern:          /admin/(.*)
+            pattern:           /admin/(.*)
             form_login:
                 provider:       fos_user_provider
+                csrf_provider:  form.csrf_provider
                 login_path:     admin_login
                 check_path:     admin_login_check
-                use_forward:    true
+                use_forward:    false
                 always_use_default_target_path: false
                 default_target_path:  acme_admin_homepage
                 target_path_parameter:          _target_path
@@ -52,10 +50,10 @@ security:
                 path:           admin_logout
                 target:         admin_login
             anonymous:        true
-            context:          application
+            #context:          application
         # フロント側
         main:
-            pattern: ^/
+            pattern: .*
             form_login:
                 provider:      my_chain_provider
                 csrf_provider: form.csrf_provider
@@ -84,16 +82,15 @@ security:
             #     provider: fos_facebook_provider
 
     access_control:
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY } 
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/mypage/, role: ROLE_USER }
-        - { path: ^/facebook/, role: ROLE_FACEBOOK }
         - { path: ^/login_openid$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/secured_area, role: IS_AUTHENTICATED_OPENID }
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-
+        - { path: ^/mypage/, role: ROLE_USER }
+        - { path: ^/facebook/, role: ROLE_FACEBOOK }
+        - { path: ^/secured_area, role: IS_AUTHENTICATED_OPENID }

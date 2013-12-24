@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('AcmeAdminBundle:Default:index.html.twig');
     }
+
+    public function loginAction($name)
+    {
+        return $this->render('AcmeAdminBundle:Default:index.html.twig');
+    }
 }
