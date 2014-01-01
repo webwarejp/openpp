@@ -31,6 +31,9 @@
         "sonata-project/admin-bundle": "2.2.8",
         "sonata-project/media-bundle": "2.2.*@dev",
         "sonata-project/page-bundle": "2.3.*@dev",
+        "sonata-project/doctrine-orm-admin-bundle": "2.2.*@dev",
+        "sonata-project/easy-extends-bundle": "2.1.*@dev",
+        "sonata-project/jquery-bundle": "1.8.*@dev",
         "oh/emoji-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "1.1.*@dev"
     },
@@ -58,12 +61,14 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+            "keep-outdated": true
         },
         "branch-alias": {
             "dev-master": "2.3-dev"

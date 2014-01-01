@@ -18,10 +18,20 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             //new FOS\FacebookBundle\FOSFacebookBundle(),
-            new Acme\UserBundle\AcmeUserBundle(),
+            //new Acme\UserBundle\AcmeUserBundle(),
             new Fp\OpenIdBundle\FpOpenIdBundle(),
             new Acme\ToppageBundle\AcmeToppageBundle(),
             new Acme\AdminBundle\AcmeAdminBundle(),
+            //Sonata Project
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,11 +1,16 @@
 security:
+    ## sonata
+    acl:
+        connection: default 
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:       [ROLE_USER, ROLE_SONATA_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        SONATA:
+            - ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT  # if you are using acl then this line must be commented
 
     providers:
         # in memory provider
@@ -16,8 +21,8 @@ security:
                     admin: { password: "%in_memory.admin.pass%", roles: [ 'ROLE_ADMIN' , 'ROLE_SUPER_ADMIN' ] }
 
         # FpOpenIdBundle
-        openid_user_provider:
-            id: acme.user.openid_user_manager # the name of the service
+        #openid_user_provider:
+        #    id: acme.user.openid_user_manager # the name of the service
 
         # FOSUserBundle
         fos_user_provider:
@@ -50,7 +55,7 @@ security:
                 path:           admin_logout
                 target:         admin_login
             anonymous:        true
-            #context:          application
+            context:          application
         # フロント側
         main:
             pattern: .*
@@ -62,15 +67,15 @@ security:
             context:      application
             switch_user:  true
 
-            #OpenID
-            fp_openid:
-                create_user_if_not_exists: true # so createUserFromIdentity method will be called
-                provider: openid_user_provider # cf below
-                # previously we used 'contact/email' field. So we have to request it!
-                # Please note that all OpenID providers may not be able to provide all fields.
-                # check the desired provider documentation
-                required_attributes:
-                    - contact/email 
+#            #OpenID
+#            fp_openid:
+#                create_user_if_not_exists: true # so createUserFromIdentity method will be called
+#                provider: openid_user_provider # cf below
+#                # previously we used 'contact/email' field. So we have to request it!
+#                # Please note that all OpenID providers may not be able to provide all fields.
+#                # check the desired provider documentation
+#                required_attributes:
+#                    - contact/email 
 
             # FOSFacebookBundle
             #fos_facebook:
@@ -90,7 +95,7 @@ security:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
         - { path: ^/mypage/, role: ROLE_USER }
         - { path: ^/facebook/, role: ROLE_FACEBOOK }
         - { path: ^/secured_area, role: IS_AUTHENTICATED_OPENID }
