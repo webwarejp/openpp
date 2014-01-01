@@ -13,7 +13,7 @@ security:
             memory:
                 users:
                     user:  { password: "%in_memory.user.pass%",  roles: [ 'ROLE_USER' ] }
-                    admin: { password: "%in_memory.admin.pass%", roles: [ 'ROLE_ADMIN' ] }
+                    admin: { password: "%in_memory.admin.pass%", roles: [ 'ROLE_ADMIN' , 'ROLE_SUPER_ADMIN' ] }
 
         # FpOpenIdBundle
         openid_user_provider:
