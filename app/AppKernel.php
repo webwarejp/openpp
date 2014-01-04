@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             //new FOS\FacebookBundle\FOSFacebookBundle(),
-            //new Acme\UserBundle\AcmeUserBundle(),
+            new Acme\UserBundle\AcmeUserBundle(),
             new Fp\OpenIdBundle\FpOpenIdBundle(),
             new Acme\ToppageBundle\AcmeToppageBundle(),
             new Acme\AdminBundle\AcmeAdminBundle(),
@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Acme\HelpBundle\AcmeHelpBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

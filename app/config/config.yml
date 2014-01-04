@@ -89,8 +89,8 @@ fos_user:
         group_class: Application\Sonata\UserBundle\Entity\Group
 
     registration:
-#        form:
-#            handler: acme_user.form.handler.registration
+        form:
+            handler: acme_user.form.handler.registration
         confirmation:
             enabled:    true
 fp_open_id:
