@@ -2,19 +2,15 @@ acme_help:
     resource: "@AcmeHelpBundle/Resources/config/routing.yml"
     prefix:   /
 
-acme_admin:
-    resource: "@AcmeAdminBundle/Resources/config/routing.yml"
-    prefix:   /
+#acme_admin:
+#    resource: "@AcmeAdminBundle/Resources/config/routing.yml"
+#    prefix:   /
 
 acme_toppage:
     resource: "@AcmeToppageBundle/Resources/config/routing.yml"
     prefix:   /
 
 #acme_user:
-#    resource: "@AcmeUserBundle/Resources/config/routing.yml"
-#    prefix:   /
-
-#user_bundle:
 #    resource: "@AcmeUserBundle/Resources/config/routing.yml"
 #    prefix:   /
 
@@ -31,10 +27,21 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
+news:
+    resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
+    prefix: /news
+
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /media/gallery
+
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media
+
 #fp_openid_security:
 #    resource: "@FpOpenIdBundle/Resources/config/routing/security.xml"
 
-# app/config/routing.yml
 # fos facebook bundle
 #_security_check:
 #    pattern:  /login_check

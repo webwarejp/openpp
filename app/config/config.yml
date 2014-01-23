@@ -62,13 +62,13 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
         ## sonata user
-        entity_managers:
-            default:
-                auto_mapping: true
-                mappings:
-                    ApplicationSonataUserBundle: ~
-                    SonataUserBundle: ~
+#        entity_managers:
+#            default:
+#                mappings:
+#                    ApplicationSonataUserBundle: ~
+#                    SonataUserBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -82,22 +82,27 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-#    user_class:    Acme\UserBundle\Entity\User
     user_class:     Application\Sonata\UserBundle\Entity\User
 
     group:
         group_class: Application\Sonata\UserBundle\Entity\Group
 
     registration:
-        form:
-            handler: acme_user.form.handler.registration
         confirmation:
             enabled:    true
-fp_open_id:
-    db_driver: orm
-    identity_class: Acme\UserBundle\Entity\OpenIdIdentity
+            from_email:
+                address:        registration@acmedemo.com
+                sender_name:    openpp
+    resetting:
+        email:
+            from_email:
+                address:        resetting@acmedemo.com
+                sender_name:    openpp
 
-# application/config/config.yml
+#fp_open_id:
+#    db_driver: orm
+#    identity_class: Acme\UserBundle\Entity\OpenIdIdentity
+
 #fos_facebook:
 #    alias:  facebook
 #    app_id: 123456879
@@ -134,18 +139,32 @@ sonata_user:
         # Profile show page is a dashboard as in SonataAdminBundle
         dashboard:
             blocks:
-#                - { position: left, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> This is a sample user profile dashboard, feel free to override it in the configuration! Want to make this text dynamic? For instance display the user's name? Create a dedicated block and edit the configuration!"} }
-#                - { position: left, type: sonata.order.block.recent_orders, settings: { title: Recent Orders, number: 5, mode: public }}
+                - { position: left, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> This is a sample user profile dashboard, feel free to override it in the configuration! Want to make this text dynamic? For instance display the user's name? Create a dedicated block and edit the configuration!"} }
 #                - { position: right, type: sonata.timeline.block.timeline, settings: { max_per_page: 15 }}
-#                - { position: right, type: sonata.news.block.recent_posts, settings: { title: Recent Posts, number: 5, mode: public }}
+                - { position: right, type: sonata.news.block.recent_posts, settings: { title: Recent Posts, number: 5, mode: public }}
 #                - { position: right, type: sonata.news.block.recent_comments, settings: { title: Recent Comments, number: 5, mode: public }}
         # Customize user portal menu by setting links
         menu:
             - { route: 'sonata_user_profile_show', label: 'sonata_profile_title', domain: 'SonataUserBundle'}
             - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
-#            - { route: 'sonata_customer_addresses', label: 'link_list_addresses', domain: 'SonataCustomerBundle'}
             - { route: 'sonata_user_profile_edit_authentication', label: 'link_edit_authentication', domain: 'SonataUserBundle'}
-#            - { route: 'sonata_order_index', label: 'order_list', domain: 'SonataOrderBundle'}
+        # This allows you to specify where you want your user redirected once he activated his account
+        register:
+            confirm:
+                redirect:
+                    # Set it to false to disable redirection
+                    route: 'sonata_user_profile_show'
+                    route_parameters: ~
+        # Profile Form (firstname, lastname, etc ...)
+        form:
+            type:               sonata_user_profile
+            handler:            sonata.user.profile.form.handler.default
+            name:               sonata_user_profile_form
+            validation_groups:  [Profile]
+#    impersonating:
+#        route:                page_slug
+#        parameters:           { path: / }
+
 
 sonata_block:
     default_contexts: [cms]
@@ -153,6 +172,77 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
         sonata.user.block.menu:    # used to display the menu in profile pages
+            contexts: [user]
         sonata.user.block.account: # used to display menu option (login option)
+            contexts: [user]
+        sonata.block.service.text:
+        sonata.block.service.rss:
+        sonata.news.block.recent_posts:
+
+sonata_news:
+    title:        Sonata Project
+    link:         http://sonata-project.org
+    description:  Cool bundles on top of Symfony2
+    salt:         'secureToken'
+    permalink_generator: sonata.news.permalink.date # sonata.news.permalink.collection
+    comment:
+        notification:
+            emails:   [email@example.org, email2@example.org]
+            from:     no-reply@sonata-project.org
+            template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'
+
+sonata_media:
+    # if you don't use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+    default_context: default
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false
+
+sonata_formatter:
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
 
 

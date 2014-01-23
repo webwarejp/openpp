@@ -4,11 +4,11 @@ namespace Acme\Help\Entity;
 
 class Contact 
 {
-  protect $username;
+  protected $username;
 
-  protect $mailaddress;
+  protected $mailaddress;
 
-  protect $body
+  protected $body;
 
 }
 
