@@ -140,6 +140,19 @@ services:
 # sonata project
 sonata_admin:
     title:      openpp Admin
+    dashboard:
+        groups:
+            application_sonata_user:
+                items: ~
+            sonata_blog:
+                items: ~
+                label_catalogue: "SonataNewsBundle"
+            sonata_classification:
+                items: ~
+                label_catalogue: "SonataClassificationBundle"
+            sonata_media:
+                items: ~
+                label_catalogue: "SonataMediaBundle"
     security:
         handler: sonata.admin.security.handler.acl
         # acl security information
