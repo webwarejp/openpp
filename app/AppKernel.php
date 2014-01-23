@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
             //new FOS\FacebookBundle\FOSFacebookBundle(),
             new Fp\OpenIdBundle\FpOpenIdBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
@@ -43,6 +44,7 @@ class AppKernel extends Kernel
             //new Acme\AdminBundle\AcmeAdminBundle(),
             new Acme\HelpBundle\AcmeHelpBundle(),
             //new Acme\UserBundle\AcmeUserBundle(),
+            new Acme\MessageBundle\AcmeMessageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

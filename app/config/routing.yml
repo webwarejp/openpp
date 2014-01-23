@@ -50,6 +50,9 @@ media:
 #fos_facebook_channel:
 #    resource: "@FOSFacebookBundle/Resources/config/routing.xml"
 
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /message
 
 # FOS User
 fos_user_security:
