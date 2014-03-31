@@ -14,6 +14,10 @@ acme_toppage:
 #    resource: "@AcmeUserBundle/Resources/config/routing.yml"
 #    prefix:   /
 
+#application_sonata_user_profile:
+#    resource: '@ApplicationSonataUserBundle/Resources/config/routing/profile.xml'
+#    prefix: /profile
+
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
@@ -43,12 +47,12 @@ media:
 #    resource: "@FpOpenIdBundle/Resources/config/routing/security.xml"
 
 # fos facebook bundle
-#_security_check:
-#    pattern:  /login_check
-#_security_logout:
-#    pattern:  /logout
-#fos_facebook_channel:
-#    resource: "@FOSFacebookBundle/Resources/config/routing.xml"
+_security_check:
+    pattern:  /login_check_facebook
+_security_logout:
+    pattern:  /logout
+fos_facebook_channel:
+    resource: "@FOSFacebookBundle/Resources/config/routing.xml"
 
 fos_message:
     resource: "@FOSMessageBundle/Resources/config/routing.xml"

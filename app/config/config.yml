@@ -109,12 +109,13 @@ fos_message:
 #    db_driver: orm
 #    identity_class: Acme\UserBundle\Entity\OpenIdIdentity
 
-#fos_facebook:
-#    alias:  facebook
-#    app_id: 123456879
-#    secret: s3cr3t
-#    cookie: true
-#    permissions: [email, user_birthday, user_location]
+#FOSFacebookBundle Configuration
+fos_facebook:
+    alias:  facebook
+    app_id: 1456604707887487
+    secret: 49b156b0a0a53743f2b35c19bc182e5f
+    cookie: true
+    permissions: [email, user_birthday, user_location]
 
 # database session setting.
 parameters:
@@ -127,7 +128,7 @@ services:
     pdo:
         class: PDO
         arguments:
-            dsn:      "mysql:dbname=%database_name%;host=%database_host%;port=%database_port%"
+            dsn:      "pgsql:dbname=%database_name%;host=%database_host%;port=%database_port%"
             user:     "%database_user%"
             password: "%database_password%"
         calls:
@@ -183,6 +184,7 @@ sonata_user:
             - { route: 'sonata_user_profile_show', label: 'sonata_profile_title', domain: 'SonataUserBundle'}
             - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
             - { route: 'sonata_user_profile_edit_authentication', label: 'link_edit_authentication', domain: 'SonataUserBundle'}
+            - { route: 'application_sonata_user_profile_edit_sns', label: 'link_edit_sns', domain: 'ApplicationSonataUserBundle'}
         # This allows you to specify where you want your user redirected once he activated his account
         register:
             confirm:

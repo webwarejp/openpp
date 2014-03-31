@@ -43,6 +43,12 @@
                 <argument>%sonata.user.admin.group.translation_domain%</argument>
             </call>
         </service>
+
+        <service id="application.sonata.user.facebook.user" class="Application\Sonata\UserBundle\Security\User\Provider\FacebookProvider">
+            <argument type="service" id="fos_facebook.api" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="validator" />
+        </service>
     </services>
 
 </container>
