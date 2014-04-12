@@ -46,14 +46,6 @@ media:
 #fp_openid_security:
 #    resource: "@FpOpenIdBundle/Resources/config/routing/security.xml"
 
-# fos facebook bundle
-_security_check:
-    pattern:  /login_check_facebook
-_security_logout:
-    pattern:  /logout
-fos_facebook_channel:
-    resource: "@FOSFacebookBundle/Resources/config/routing.xml"
-
 fos_message:
     resource: "@FOSMessageBundle/Resources/config/routing.xml"
     prefix: /message

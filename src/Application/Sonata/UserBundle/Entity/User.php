@@ -38,31 +38,4 @@ class User extends BaseUser implements ParticipantInterface
     {
         return $this->id;
     }
-
-    /**
-     * @param Array
-     */
-    public function setFBData($fbdata)
-    {
-        if (isset($fbdata['id'])) {
-            $this->setFacebookUid($fbdata['id']);
-            $this->setUsername($fbdata['id']);
-            $this->addRole('ROLE_FACEBOOK');
-        }
-        if (isset($fbdata['first_name'])) {
-            if (!$this->getFirstname()) {
-                $this->setFirstname($fbdata['first_name']);
-            }
-        }
-        if (isset($fbdata['last_name'])) {
-            if (!$this->getLastname()) {
-                $this->setLastname($fbdata['last_name']);
-            }
-        }
-        if (isset($fbdata['email'])) {
-            if (!$this->getEmail()) {
-                $this->setEmail($fbdata['email']);
-            }
-        }
-    }
 }

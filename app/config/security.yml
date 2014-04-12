@@ -28,9 +28,6 @@ security:
         fos_user_provider:
             id: fos_user.user_provider.username
 
-        my_fos_facebook_provider:
-            id: application.sonata.user.facebook.user
-
         front_provider:
             chain:
                 providers: [ fos_user_provider, in_memory ]
@@ -73,15 +70,7 @@ security:
 #                # check the desired provider documentation
 #                required_attributes:
 #                    - contact/email 
-            # FOSFacebookBundle
-            fos_facebook:
-                app_url: "http://apps.facebook.com/appName/"
-                server_url: "http://openpp.localhost/facebookApp/"
-                check_path: /login_check_facebook
-                provider:   my_fos_facebook_provider
-            logout:
-                delete_cookies:
-                    fbsr_1456604707887487: { path: "/", domain: null }
+            logout:       true
             anonymous:    true
             context:      application
             switch_user:  true
