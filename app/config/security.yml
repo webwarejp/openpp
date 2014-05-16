@@ -61,6 +61,13 @@ security:
             form_login:
                 provider:      front_provider
                 csrf_provider: form.csrf_provider
+            oauth:
+                resource_owners:
+                    facebook:   "/login/check-facebook"
+                login_path:   /login
+                failure_path: /login
+                oauth_user_provider:
+                    service: application.sonata.user.oauth.provider
 #            #OpenID
 #            fp_openid:
 #                create_user_if_not_exists: true # so createUserFromIdentity method will be called

@@ -2,6 +2,7 @@
 
 {% block body %}
 <div>
-
+    {# Bonus: Show all available login link in HWIOAuthBundle #}
+    {% render(controller('HWIOAuthBundle:Connect:connect')) %}
 </div>
 {% endblock %}

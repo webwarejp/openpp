@@ -44,6 +44,13 @@
             </call>
         </service>
 
+        <service id="application.sonata.user.oauth.provider" class="Application\Sonata\UserBundle\Security\FOSUBUserProvider">
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="collection">
+              <argument key="facebook">facebookUid</argument>
+            </argument>
+        </service>
+
     </services>
 
 </container>
