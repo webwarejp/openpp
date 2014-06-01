@@ -1,0 +1,10 @@
+Acme\HelpBundle\Entity\Test:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }
