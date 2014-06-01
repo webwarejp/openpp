@@ -3,8 +3,25 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
+    <header>
+        <h1>Contact OpenPP</h1>
+    </header>
+
+    <p>OpenPPへのお問い合わせ</p>
 Contact Form:
+    ここから
+    <form action="{{ path('help_contact') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.username) }}
+            {{ form_errors(form.username) }}
+            {{ form_widget(form.username) }}
+        </div>
+        {{ form_row(form.mailaddress) }}
+        {{ form_row(form.body) }}
 
-{{ form_widget(form, { 'attr': {'class': 'foo'} }) }}
-
+        {{ form_rest(form) }}
+        <input type="submit" />
+    </form>
+    ここまで
 {% endblock %}
