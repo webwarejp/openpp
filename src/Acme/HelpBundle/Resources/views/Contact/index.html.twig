@@ -9,6 +9,11 @@
 
     <p>OpenPPへのお問い合わせ</p>
 Contact Form:
+    {% for flashMessage in app.session.flashbag.get('contact-notice') %}
+    <div class="contact-notice">
+        {{ flashMessage }}
+    </div>
+    {% endfor %}
     ここから
     <form action="{{ path('help_contact') }}" method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}

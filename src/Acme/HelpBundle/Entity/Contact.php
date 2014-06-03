@@ -27,10 +27,25 @@ class Contact
      * @ORM\Column(type="string")
      */
     protected $body;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $gender;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    protected $availability;
     /**
      * @ORM\Column(type="datetime")
      */
     protected $created;
+
+    function __construct()
+    {
+        $this->setCreated(new \DateTime());
+    }
 
 
     /**
@@ -133,5 +148,59 @@ class Contact
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * Set gender
+     *
+     * @param string $gender
+     * @return Contact
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    
+        return $this;
+    }
+
+    /**
+     * Get gender
+     *
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * Set availability
+     *
+     * @param string $availability
+     * @return Contact
+     */
+    public function setAvailability($availability)
+    {
+        $this->availability = $availability;
+    
+        return $this;
+    }
+
+    /**
+     * Get availability
+     *
+     * @return string 
+     */
+    public function getAvailability()
+    {
+        return $this->availability;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedValue()
+    {
+        $this->setCreated(new \DateTime());
     }
 }
