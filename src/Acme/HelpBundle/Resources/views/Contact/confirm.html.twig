@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Contact OpenPP</h1>
+    </header>
+
+    <p>OpenPPへのお問い合わせ</p>
+Contact Form:
+    {% for flashMessage in app.session.flashbag.get('contact-notice') %}
+    <div class="contact-notice">
+        {{ flashMessage }}
+    </div>
+    {% endfor %}
+    <a>確認</a>
+<table cellpadding="0" cellspacing="0" border="0" class="tbl">
+    <col width="15%" />
+    <col width="15%" />
+    <col width="70%" />
+    <tbody>
+    <tr>
+        <th></th>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+    <form action="{{ path('help_contact') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+        {{ form_rest(form) }}
+
+        <input type="submit" />
+    </form>
+    ここまで
+{% endblock %}
+
+{% block javascripts %}
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+data={{ mydata|raw }};
+for(var index in data.json){
+    $('table.tbl tbody').append('<tr>'+
+'<th>'+data.json[index].label+'</th>'+
+        '<td class="label"><span class="' +
+        data.json[index].label + '">' +
+        data.json[index].value +
+        '</span></td>'+
+        '</tr>');
+}
+</script>
+
+{{ parent() }}
+{% endblock %}

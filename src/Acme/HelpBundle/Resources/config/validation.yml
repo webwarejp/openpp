@@ -1,0 +1,11 @@
+Acme\HelpBundle\Entity\Contact:
+    properties:
+        username:
+            - Length:
+                min: 4
+                max: 50
+                minMessage: "Your first name must be at least {{ limit }} characters length"
+                maxMessage: "Your first name cannot be longer than {{ limit }} characters length"
+        gender:
+            - Choice: { choices: [m, f], message: Choose a valid gender. }
+

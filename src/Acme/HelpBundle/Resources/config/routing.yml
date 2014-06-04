@@ -1,3 +1,6 @@
 help_contact:
     pattern: /help/contact
     defaults: { _controller: AcmeHelpBundle:Contact:index }
+help_contact_confirm:
+    pattern: /help/contact/confirm
+    defaults: { _controller: AcmeHelpBundle:Contact:confirm }

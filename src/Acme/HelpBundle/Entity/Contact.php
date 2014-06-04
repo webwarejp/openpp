@@ -1,43 +1,54 @@
 <?php
 namespace Acme\HelpBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Exclude;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * @ORM\Entity(repositoryClass="Acme\HelpBundle\Entity\Repository\ContactRepository"))
  * @ORM\Table(name="contact")
  * @ORM\HasLifecycleCallbacks()
+ * @ExclusionPolicy("none")
  **/
 class Contact
 {
     /**
+     * @Exclude
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      * */
     protected $id;
     /**
+     * @Type("string")
      * @ORM\Column(type="string")
      */
     protected $username;
     /**
+     * @Type("string")
      * @ORM\Column(type="string")
      */
     protected $mailaddress;
     /**
+     * @Type("string")
      * @ORM\Column(type="string")
      */
     protected $body;
 
     /**
+     * @Type("string")
      * @ORM\Column(type="string")
      */
     protected $gender;
 
     /**
+     * @Type("array")
      * @ORM\Column(type="array")
      */
     protected $availability;
     /**
+     * @Exclude
      * @ORM\Column(type="datetime")
      */
     protected $created;
@@ -46,8 +57,6 @@ class Contact
     {
         $this->setCreated(new \DateTime());
     }
-
-
     /**
      * Get id
      *

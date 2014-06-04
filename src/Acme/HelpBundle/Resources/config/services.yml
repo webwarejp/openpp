@@ -2,6 +2,8 @@ parameters:
 #    acme_help.example.class: Acme\HelpBundle\Example
 
 services:
-#    acme_help.example:
-#        class: %acme_help.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    acme.contact.form.type:
+        class: Acme\HelpBundle\Form\ContactType
+        tags:
+            - { name: form.type, alias: acme_helpbundle_contact }
+        arguments: [ @session ]

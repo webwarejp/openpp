@@ -22,10 +22,17 @@ Contact Form:
             {{ form_errors(form.username) }}
             {{ form_widget(form.username) }}
         </div>
+        <div>
+        {{ form_label(form.mailaddress) }}
         {{ form_row(form.mailaddress) }}
+        </div>
+        <div>
+        {{ form_label(form.body) }}
         {{ form_row(form.body) }}
-
+        </div>
+        {{ form_row(form._token) }}
         {{ form_rest(form) }}
+
         <input type="submit" />
     </form>
     ここまで
