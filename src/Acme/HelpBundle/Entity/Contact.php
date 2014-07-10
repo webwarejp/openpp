@@ -4,6 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\Type;
+use Acme\HelpBundle\Entity\Team;
 
 /**
  * @ORM\Entity(repositoryClass="Acme\HelpBundle\Entity\Repository\ContactRepository"))
@@ -14,7 +15,6 @@ use JMS\Serializer\Annotation\Type;
 class Contact
 {
     /**
-     * @Exclude
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
@@ -43,12 +43,19 @@ class Contact
     protected $gender;
 
     /**
+     * **
+     * @ORM\ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     **/
+    protected $team;
+
+    /**
      * @Type("array")
      * @ORM\Column(type="array")
      */
     protected $availability;
     /**
-     * @Exclude
+     * @Type("DateTime")
      * @ORM\Column(type="datetime")
      */
     protected $created;
@@ -211,5 +218,28 @@ class Contact
     public function setUpdatedValue()
     {
         $this->setCreated(new \DateTime());
+    }
+
+    /**
+     * Set team
+     *
+     * @param \Acme\HelpBundle\Entity\Team $team
+     * @return Contact
+     */
+    public function setTeam(\Acme\HelpBundle\Entity\Team $team = null)
+    {
+        $this->team = $team;
+    
+        return $this;
+    }
+
+    /**
+     * Get team
+     *
+     * @return \Acme\HelpBundle\Entity\Team 
+     */
+    public function getTeam()
+    {
+        return $this->team;
     }
 }

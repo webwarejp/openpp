@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 /*
  * 【済み】一旦、確認画面のjsonでの組み上げをする
- * view data transformerを使って、viewに変換する。getViewDataでデータを変換できるようにする。
+ * 【済み】Form Eventで自動的にセッションにデータを変換して保存する。。
  * すべてのフォームタイプに対応する。（画像、コレクション）
  * カスタムフォームタイプに対応する方法の検討(captca)
  * jmsシリアライザーでjsonにシリアライズする？
@@ -34,7 +34,7 @@ class ContactController extends Controller
 
         $contact = new Contact();
         $form = $this->createForm('acme_helpbundle_contact', $contact, array(
-            'em' => $this->getDoctrine()->getManager(),
+            //'em' => $this->getDoctrine()->getManager(),
         ));
         $request = $this->getRequest();
         if ($request->getMethod() == 'POST') {
@@ -70,26 +70,45 @@ class ContactController extends Controller
             $form->submit($request);
             if ($form->isValid()) {
                 $serializer = SerializerBuilder::create()->build();
-                $jsonContent = $flashBag->getFlashBag()->get('entity-json');
+                $jsonContent = $flashBag->get('entity-json');
+                if(isset($jsonContent[0]) == false)
+                {
+                    return $this->redirect($this->generateUrl('help_contact'));
+                }
                 $contact = $serializer->deserialize($jsonContent[0], 'Acme\HelpBundle\Entity\Contact', 'json');
+                $form = $this->createForm('acme_helpbundle_contact', $contact);
+
+
                 $em = $this->getDoctrine()
                     ->getManager();
                 $em->persist($contact);
                 $em->flush();
                 $flashBag->add('contact-notice', 'Your contact enquiry was successfully sent. Thank you!');
                 //完了画面へリダイレクト
-                return $this->redirect($this->generateUrl('help_contact_confirm'));
+                return $this->redirect($this->generateUrl('help_contact'));
             }
         }
-        if ($this->get('session')->getFlashBag()->has('entity-json')) {
+        if ($flashBag->has('entity-json')) {
             //セッションに再設定
-            $flashBag->set('entity-json', $flashBag->get('entity-json'));
+            $entity_json = $flashBag->get('entity-json');
+            $flashBag->add('entity-json', $entity_json[0]);
+        }
+        else
+        {
+            $flashBag->add('contact-notice', 'something wrong!');
+            return $this->redirect($this->generateUrl('help_contact'));
         }
         /*
          * @Todo dataがうまくjavascrit側に渡っていない
          */
+        $session_json = $flashBag->get('sessionjson');
+        if(isset($session_json[0]) == false)
+        {
+            $flashBag->add('contact-notice', 'something wrong!');
+            return $this->redirect($this->generateUrl('help_contact'));
+        }
         return $this->render('AcmeHelpBundle:Contact:confirm.html.twig', array('form' => $form->createView(),
-            'mydata' => $this->get('session')->get('sessionjson')));
+            'my_data' => $session_json[0]));
     }
 
 }

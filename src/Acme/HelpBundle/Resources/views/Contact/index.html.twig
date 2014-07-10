@@ -15,7 +15,7 @@ Contact Form:
     </div>
     {% endfor %}
     ここから
-    <form action="{{ path('help_contact') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_start(form) }}
         {{ form_errors(form) }}
         <div>
             {{ form_label(form.username) }}
@@ -34,6 +34,6 @@ Contact Form:
         {{ form_rest(form) }}
 
         <input type="submit" />
-    </form>
+    {{ form_end(form) }}
     ここまで
 {% endblock %}

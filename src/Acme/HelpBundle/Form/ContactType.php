@@ -3,6 +3,7 @@ namespace Acme\HelpBundle\Form;
 
 use Acme\HelpBundle\Form\DataTransformer\ConfirmTransformer;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityRepository;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -10,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+
 
 class ContactType extends AbstractType
 {
@@ -54,8 +56,26 @@ class ContactType extends AbstractType
                         'afternoon' => 'Afternoon',
                         'evening' => 'Evening',
                     ),
-                    'multiple' => true,
-                ))->addEventListener(FormEvents::POST_SUBMIT,array($this, 'onPostSubmit'));
+                    'multiple' => true,))
+                ->add('league', 'choice', array(
+                    'label' => 'リーグ',
+                    'choices' => array(
+                        'central' => 'セントラル',
+                        'pacific' => 'パシフィック'
+                    ),
+                    'mapped' => false
+                    ))
+                ->add('team', 'entity', array(
+                'label' => 'チーム',
+                'class' => 'AcmeHelpBundle:Team',
+                'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('u')
+                            ->where('u.league = :league')
+                            ->setParameter('league', 'セントラル')
+                            ->orderBy('u.id', 'ASC');
+                    },
+            ))
+            ->addEventListener(FormEvents::POST_SUBMIT,array($this, 'onPostSubmit'));
                 //->addViewTransformer($transformer);
     }
 
@@ -68,10 +88,10 @@ class ContactType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'Acme\HelpBundle\Entity\Contact'
         ))->setRequired(array(
-            'em',
+           // 'em',
            // 'form'
         ))->setAllowedTypes(array(
-            'em' => 'Doctrine\Common\Persistence\ObjectManager',
+            //'em' => 'Doctrine\Common\Persistence\ObjectManager',
            // 'form' => 'Acme\HelpBundle\Form\ContactType'
         ));
     }
@@ -120,7 +140,11 @@ class ContactType extends AbstractType
                         $array[$name]['value'] = null;
                     }
                 }
+            } else if ($config->getType()->getName() === 'entity') {
+                $array[$name]['value'] = $child->getData()->__toString();
             }
+
+
             //files
 
             //collection
@@ -129,7 +153,7 @@ class ContactType extends AbstractType
         //formにview data transformerとしてはめ込んでjsonのデータを取得する
 
 //var_dump(json_encode(array('json' =>$array)));die();
-        $this->session->set('sessionjson', json_encode(array('json' =>$array)));
+        $this->session->getFlashBag()->set('sessionjson', json_encode(array('json' =>$array)));
 
         // Check whether the user has chosen to display his email or not.
         // If the data was submitted previously, the additional value that is
