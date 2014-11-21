@@ -7,6 +7,11 @@ use Sonata\UserBundle\Controller\ProfileController as BaseController;
 
 class ProfileController extends BaseController
 {
+    /**
+     * 
+     * @throws AccessDeniedException
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function editSnsAction()
     {
         $user = $this->container->get('security.context')->getToken()->getUser();

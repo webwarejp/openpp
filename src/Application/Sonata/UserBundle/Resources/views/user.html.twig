@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block scripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script src="{{ asset('bundles/sonatajquery/jquery-1.8.3.js') }}"></script>
+    <script src="{{ asset('bundles/acmetimeline/js/jquery.bottom-1.0.js') }}"></script>
+    <script src="{{ asset('bundles/acmetimeline/js/timeline.js') }}"></script>
+    <script src="{{ asset('bundles/applicationsonatauser/js/friend.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div>
+    {{ targetUser.username }}
+    </div>
+    {% if user.id != targetUser.id %}
+    <div>
+         <button type="button" id="btn" onclick="friend_request({{ targetUser.id }})">Send Friend Request</button>
+    </div>
+    {% endif %}
+
+    <div>
+        {{ render(controller('AcmeTimelineBundle:Default:timeline', {'subject': targetUser.id })) }}
+    </div>
+
+{% endblock %}
+

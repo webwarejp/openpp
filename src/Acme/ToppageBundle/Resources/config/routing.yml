@@ -1,4 +1,6 @@
 toppage:
-    pattern:   /
-    defaults:  { _controller: AcmeToppageBundle:Default:index }
+    pattern:   /{id}
+    defaults:  { _controller: AcmeToppageBundle:Default:index, id: null }
+    requirements:
+        id:     \d+
 

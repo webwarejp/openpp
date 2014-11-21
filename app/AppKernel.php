@@ -16,7 +16,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
             new Fp\OpenIdBundle\FpOpenIdBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
@@ -40,11 +43,13 @@ class AppKernel extends Kernel
             new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
+            new Spy\TimelineBundle\SpyTimelineBundle(),
             new Acme\ToppageBundle\AcmeToppageBundle(),
             //new Acme\AdminBundle\AcmeAdminBundle(),
             new Acme\HelpBundle\AcmeHelpBundle(),
             //new Acme\UserBundle\AcmeUserBundle(),
             new Acme\MessageBundle\AcmeMessageBundle(),
+            new Acme\TimelineBundle\AcmeTimelineBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

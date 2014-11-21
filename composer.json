@@ -36,7 +36,8 @@
         "sonata-project/easy-extends-bundle": "2.1.*@dev",
         "sonata-project/jquery-bundle": "1.8.*@dev",
         "oh/emoji-bundle": "dev-master",
-        "knplabs/knp-menu-bundle": "1.1.*@dev"
+        "knplabs/knp-menu-bundle": "1.1.*@dev",
+        "stephpy/timeline-bundle": "dev-master"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "dev-master",
