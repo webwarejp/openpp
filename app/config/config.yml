@@ -146,27 +146,6 @@ hwi_oauth:
 #    db_driver: orm
 #    identity_class: Acme\UserBundle\Entity\OpenIdIdentity
 
-# database session setting.
-parameters:
-    pdo.db_options:
-        db_table:    session
-        db_id_col:   session_id
-        db_data_col: session_value
-        db_time_col: session_time
-services:
-    pdo:
-        class: PDO
-        arguments:
-            dsn:      "mysql:dbname=%database_name%;host=%database_host%;port=%database_port%"
-            user:     "%database_user%"
-            password: "%database_password%"
-        calls:
-            - [setAttribute, [3, 2]] # \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION
-
-    session.handler.pdo:
-        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
-        arguments: ["@pdo", "%pdo.db_options%"]
-
 # sonata project
 sonata_admin:
     title:      openpp Admin
