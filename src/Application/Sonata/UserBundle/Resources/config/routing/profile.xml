@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <import resource="@SonataUserBundle/Resources/config/routing/profile.xml" />
+    <import resource="@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml" />
 
     <route id="application_sonata_user_profile_edit_sns" pattern="/edit-sns">
         <default key="_controller">ApplicationSonataUserBundle:Profile:editSns</default>

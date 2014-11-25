@@ -3,7 +3,7 @@
 namespace Application\Sonata\UserBundle\Controller;
 
 use FOS\UserBundle\Model\UserInterface;
-use Sonata\UserBundle\Controller\ProfileController as BaseController;
+use Sonata\UserBundle\Controller\ProfileFOSUser1Controller as BaseController;
 
 class ProfileController extends BaseController
 {
