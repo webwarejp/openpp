@@ -27,6 +27,7 @@
         "friendsofsymfony/jsrouting-bundle": "1.5.*@dev",
         "fp/openid-bundle": "2.1.0",
         "hwi/oauth-bundle": "0.4.*@dev",
+        "sonata-project/core-bundle": "dev-master",
         "sonata-project/user-bundle": "2.3.*@dev",
         "sonata-project/admin-bundle": "2.4.*@dev",
         "sonata-project/media-bundle": "2.2.*@dev",
