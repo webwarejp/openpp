@@ -10,6 +10,7 @@ namespace Application\Sonata\NewsBundle\Admin;
 
 use Sonata\NewsBundle\Admin\PostAdmin as BasePostAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
+use \Sonata\AdminBundle\Admin\FieldDescriptionInterface;
 
 class PostAdmin extends BasePostAdmin{
 
@@ -22,7 +23,7 @@ class PostAdmin extends BasePostAdmin{
             ->with('Post', array(
                 'class' => 'col-md-8'
             ))
-            ->add('author', 'sonata_type_model_list', array( 'sonata_field_description' => null), array('admin_code' => 'application.sonata.user.admin.user'))
+            ->add('author', 'sonata_type_model_list', array(), array('admin_code' => 'application.sonata.user.admin.user'))
             ->add('title')
             ->add('abstract', null, array('attr' => array('rows' => 5)))
             ->add('content', 'sonata_formatter_type', array(
@@ -62,13 +63,8 @@ class PostAdmin extends BasePostAdmin{
                 'property' => 'name',
                 'multiple' => 'true'
             ))
-            ->add('collection', 'sonata_type_model_list',
-                array( 'required' => false, //'attr' => array( 'associationadmin' => 'Sonata\ClassificationBundle\Admin\CollectionAdmin' )//検討中
-                )
-            )
+            ->add('collection', 'sonata_type_model_list', array( 'required' => false))
             ->end()
         ;
     }
-
-
 } 
