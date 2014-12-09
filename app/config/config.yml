@@ -68,6 +68,9 @@ doctrine:
 #        entity_managers:
 #            default:
 #                mappings:
+#                    ApplicationSonataNewsBundle: ~
+#                    SonataNewsBundle: ~
+#                    FOSUserBundle: ~
 #                    ApplicationSonataUserBundle: ~
 #                    SonataUserBundle: ~
 
@@ -149,6 +152,8 @@ hwi_oauth:
 
 # sonata project
 sonata_admin:
+    templates:
+        dashboard: SonataAdminBundle:Core:dashboard.html.twig
     title:      openpp Admin
     dashboard:
         groups:
@@ -180,6 +185,9 @@ sonata_admin:
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
+    class:                  # Entity Classes
+        user:               Application\Sonata\UserBundle\Entity\User
+        group:              Application\Sonata\UserBundle\Entity\Group
     profile:
         # Profile show page is a dashboard as in SonataAdminBundle
         dashboard:
@@ -236,6 +244,12 @@ sonata_news:
             emails:   [email@example.org, email2@example.org]
             from:     no-reply@sonata-project.org
             template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'
+    admin:
+            post:
+                class:       Application\Sonata\NewsBundle\Admin\PostAdmin
+                controller:  SonataAdminBundle:CRUD
+                translation: SonataNewsBundle
+
 
 sonata_media:
     # if you don't use default namespace configuration
@@ -313,3 +327,11 @@ spy_timeline:
         resources:
             - 'AcmeTimelineBundle:Timeline:components.html.twig'
     paginator: ~
+
+ivory_ck_editor:
+    configs:
+        news:
+            toolbar:                [ [ "Source", "-", "Save" ], "/", [ "Anchor" ], "/", [ "Maximize" ] ]
+            uiColor:                "#000000"
+            filebrowserUploadRoute: "my_route"
+            extraPlugins:           "wordcount"

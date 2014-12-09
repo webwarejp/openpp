@@ -29,6 +29,7 @@ class UserAdmin extends BaseUserAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        parent::configureFormFields($formMapper);
         $formMapper
         ->with('General')
         ->add('username')
