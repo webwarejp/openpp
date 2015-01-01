@@ -31,13 +31,15 @@
         "sonata-project/admin-bundle": "2.3.*@dev",
         "sonata-project/media-bundle": "2.2.*@dev",
         "sonata-project/page-bundle": "2.3.*@dev",
-        "sonata-project/news-bundle": "2.3.*@dev",
+        "sonata-project/news-bundle": "~2.3",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.*@dev",
         "sonata-project/easy-extends-bundle": "2.1.*@dev",
         "sonata-project/jquery-bundle": "1.8.*@dev",
+        "sonata-project/classification-bundle": "2.2.*@dev",
         "oh/emoji-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "1.1.*@dev",
-        "stephpy/timeline-bundle": "dev-master"
+        "stephpy/timeline-bundle": "dev-master",
+        "willdurand/faker-bundle": "~1.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "dev-master",

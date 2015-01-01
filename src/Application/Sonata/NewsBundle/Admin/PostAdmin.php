@@ -11,12 +11,30 @@ namespace Application\Sonata\NewsBundle\Admin;
 use Sonata\NewsBundle\Admin\PostAdmin as BasePostAdmin;
 use Sonata\AdminBundle\Form\FormMapper;
 use \Sonata\AdminBundle\Admin\FieldDescriptionInterface;
+use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class PostAdmin extends BasePostAdmin{
 
     /**
      * {@inheritdoc}
      */
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->add('author')
+            ->add('enabled')
+            ->add('title')
+            ->add('abstract')
+            ->add('content', null, array('safe' => true))
+            ->add('tags')
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    /*
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -63,8 +81,40 @@ class PostAdmin extends BasePostAdmin{
                 'property' => 'name',
                 'multiple' => 'true'
             ))
-            ->add('collection', 'sonata_type_model_list', array( 'required' => false))
+            ->add('collection', 'sonata_type_model_list', array( 'required' => false,'model_manager' => $this->getModelManager(),))
             ->end()
         ;
     }
+    */
+    /**
+     * {@inheritdoc}
+     */
+    /*
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $that = $this;
+
+        $datagridMapper
+            ->add('title')
+            ->add('enabled')
+            ->add('tags', null, array('field_options' => array('expanded' => true, 'multiple' => true)))
+            ->add('author')
+//            ->add('author', 'sonata_type_model_list', array(), array('admin_code' => 'application.sonata.user.admin.user'))
+            ->add('with_open_comments', 'doctrine_orm_callback', array(
+//                'callback'   => array($this, 'getWithOpenCommentFilter'),
+                'callback' => function ($queryBuilder, $alias, $field, $data) use ($that) {
+                        if (!is_array($data) || !$data['value']) {
+                            return;
+                        }
+
+                        $queryBuilder->leftJoin(sprintf('%s.comments', $alias), 'c');
+                        $queryBuilder->andWhere('c.status = :status');
+                        $queryBuilder->setParameter('status', CommentInterface::STATUS_MODERATE);
+                    },
+                'field_type' => 'checkbox'
+            ))
+        ;
+    }
+    */
+
 } 

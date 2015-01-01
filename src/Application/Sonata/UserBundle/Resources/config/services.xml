@@ -7,43 +7,45 @@
         <parameter key="application.sonata.user.admin.groupname">application_sonata_user</parameter>
     </parameters>
 
+
     <services>
-        <service id="application.sonata.user.admin.user" class="Application\Sonata\UserBundle\Admin\UserAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="%application.sonata.user.admin.groupname%" label="users" label_catalogue="SonataUserBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
-            <argument />
-            <argument>Application\Sonata\UserBundle\Entity\User</argument>
-            <argument>%sonata.user.admin.user.controller%</argument>
-            <call method="setUserManager">
-                <argument type="service" id="fos_user.user_manager" />
-            </call>
-            <call method="setTranslationDomain">
-                <argument>%sonata.user.admin.user.translation_domain%</argument>
-            </call>
-        </service>
+        <!--
+            <service id="application.sonata.user.admin.user" class="Application\Sonata\UserBundle\Admin\UserAdmin">
+                <tag name="sonata.admin" manager_type="orm" group="%application.sonata.user.admin.groupname%" label="users" label_catalogue="SonataUserBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+                <argument />
+                <argument>Application\Sonata\UserBundle\Entity\User</argument>
+                <argument>%sonata.user.admin.user.controller%</argument>
+                <call method="setUserManager">
+                    <argument type="service" id="fos_user.user_manager" />
+                </call>
+                <call method="setTranslationDomain">
+                    <argument>%sonata.user.admin.user.translation_domain%</argument>
+                </call>
+            </service>
 
-        <service id="application.sonata.user.admin.adminuser" class="Application\Sonata\UserBundle\Admin\AdminUserAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="%application.sonata.user.admin.groupname%" label="admin_users" label_catalogue="SonataUserBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
-            <argument />
-            <argument>Application\Sonata\UserBundle\Entity\User</argument>
-            <argument>%sonata.user.admin.user.controller%</argument>
-            <call method="setUserManager">
-                <argument type="service" id="fos_user.user_manager" />
-            </call>
-            <call method="setTranslationDomain">
-                <argument>%sonata.user.admin.user.translation_domain%</argument>
-            </call>
-        </service>
+            <service id="application.sonata.user.admin.adminuser" class="Application\Sonata\UserBundle\Admin\AdminUserAdmin">
+                <tag name="sonata.admin" manager_type="orm" group="%application.sonata.user.admin.groupname%" label="admin_users" label_catalogue="SonataUserBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+                <argument />
+                <argument>Application\Sonata\UserBundle\Entity\User</argument>
+                <argument>%sonata.user.admin.user.controller%</argument>
+                <call method="setUserManager">
+                    <argument type="service" id="fos_user.user_manager" />
+                </call>
+                <call method="setTranslationDomain">
+                    <argument>%sonata.user.admin.user.translation_domain%</argument>
+                </call>
+            </service>
 
-        <service id="application.sonata.user.admin.group" class="Application\Sonata\UserBundle\Admin\GroupAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="%application.sonata.user.admin.groupname%" label="groups" label_catalogue="SonataUserBundle"  label_translator_strategy="sonata.admin.label.strategy.underscore" />
-            <argument />
-            <argument>Application\Sonata\UserBundle\Entity\Group</argument>
-            <argument>%sonata.user.admin.group.controller%</argument>
-            <call method="setTranslationDomain">
-                <argument>%sonata.user.admin.group.translation_domain%</argument>
-            </call>
-        </service>
-
+            <service id="application.sonata.user.admin.group" class="Application\Sonata\UserBundle\Admin\GroupAdmin">
+                <tag name="sonata.admin" manager_type="orm" group="%application.sonata.user.admin.groupname%" label="groups" label_catalogue="SonataUserBundle"  label_translator_strategy="sonata.admin.label.strategy.underscore" />
+                <argument />
+                <argument>Application\Sonata\UserBundle\Entity\Group</argument>
+                <argument>%sonata.user.admin.group.controller%</argument>
+                <call method="setTranslationDomain">
+                    <argument>%sonata.user.admin.group.translation_domain%</argument>
+                </call>
+            </service>
+    -->
         <service id="application.sonata.user.oauth.provider" class="Application\Sonata\UserBundle\Security\FOSUBUserProvider">
             <argument type="service" id="fos_user.user_manager" />
             <argument type="collection">
@@ -52,5 +54,6 @@
         </service>
 
     </services>
+
 
 </container>

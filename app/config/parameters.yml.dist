@@ -13,3 +13,5 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+    sonata.news.admin.post.class: Application\Sonata\NewsBundle\Admin\PostAdmin
+    sonata.classification.admin.category.class: Application\Sonata\ClassificationBundle\Admin\CategoryAdmin

@@ -1,8 +1,0 @@
-acme_timeline_get:
-    pattern:  /timeline/{id}/{page}
-    defaults: { _controller: AcmeTimelineBundle:Default:timeline, id: null, page: 1 }
-    requirements:
-        id  :  \d+
-        page:  \d+
-    options:
-        expose: true

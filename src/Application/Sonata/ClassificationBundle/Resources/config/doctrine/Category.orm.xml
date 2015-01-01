@@ -12,10 +12,18 @@
         name="Application\Sonata\ClassificationBundle\Entity\Category"
         table="classification__category"
         repository-class="Doctrine\ORM\EntityRepository">
-
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
+        <attribute-overrides>
+            <attribute-override name="enabled">
+                <field name="enabled"       type="boolean"    column="enabled">
+                    <options>
+                        <option name="default">0</option>
+                    </options>
+                </field>
+            </attribute-override>
+        </attribute-overrides>
 
     </entity>
 </doctrine-mapping>

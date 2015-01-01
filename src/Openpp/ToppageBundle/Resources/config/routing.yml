@@ -1,0 +1,6 @@
+toppage:
+    pattern:   /{id}
+    defaults:  { _controller: OpenppToppageBundle:Default:index, id: null }
+    requirements:
+        id:     \d+
+

@@ -43,12 +43,12 @@ class AppKernel extends Kernel
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Spy\TimelineBundle\SpyTimelineBundle(),
-            new Acme\ToppageBundle\AcmeToppageBundle(),
-            //new Acme\AdminBundle\AcmeAdminBundle(),
-            new Acme\HelpBundle\AcmeHelpBundle(),
-            //new Acme\UserBundle\AcmeUserBundle(),
-            new Acme\MessageBundle\AcmeMessageBundle(),
-            new Acme\TimelineBundle\AcmeTimelineBundle(),
+            new Openpp\ToppageBundle\OpenppToppageBundle(),
+            new Openpp\AdminBundle\OpenppAdminBundle(),
+            //new Openpp\UserBundle\AcmeUserBundle(),
+            new Openpp\MessageBundle\OpenppMessageBundle(),
+            new Openpp\TimelineBundle\OpenppTimelineBundle(),
+            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

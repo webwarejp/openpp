@@ -1,0 +1,5 @@
+#FOSMessageBundle Configuration
+fos_message:
+    db_driver: orm
+    thread_class: Openpp\MessageBundle\Entity\Thread
+    message_class: Openpp\MessageBundle\Entity\Message

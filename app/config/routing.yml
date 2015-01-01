@@ -69,16 +69,12 @@ hwi_oauth_connect:
 facebook_login:
     pattern: /login/check-facebook
 
-acme_toppage:
-    resource: "@AcmeToppageBundle/Resources/config/routing.yml"
+openpp_toppage:
+    resource: "@OpenppToppageBundle/Resources/config/routing.yml"
     prefix:   /
 
-acme_help:
-    resource: "@AcmeHelpBundle/Resources/config/routing.yml"
-    prefix:   /
-
-acme_timeline:
-    resource: "@AcmeTimelineBundle/Resources/config/routing.yml"
+openpp_timeline:
+    resource: "@OpenppTimelineBundle/Resources/config/routing.yml"
     prefix:   /
 
 #application_sonata_user_profile:

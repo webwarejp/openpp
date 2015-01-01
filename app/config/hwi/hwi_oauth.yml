@@ -1,0 +1,22 @@
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+
+    http_client:
+        timeout: 10
+        verify_peer: false
+        ignore_errors: false
+        max_redirects: 1
+
+    resource_owners:
+        facebook:
+            type:          facebook
+            client_id:     123456879
+            client_secret: 123456879
+            scope:         "email"
+
+    fosub:
+        properties:
+            facebook: facebookUid
+    connect:
+        account_connector: application.sonata.user.oauth.provider

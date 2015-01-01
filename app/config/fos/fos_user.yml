@@ -1,0 +1,20 @@
+# FOS User
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class:     Application\Sonata\UserBundle\Entity\User
+
+    group:
+        group_class: Application\Sonata\UserBundle\Entity\Group
+
+    registration:
+        confirmation:
+            enabled:    true
+            from_email:
+                address:        registration@acmedemo.com
+                sender_name:    openpp
+    resetting:
+        email:
+            from_email:
+                address:        resetting@acmedemo.com
+                sender_name:    openpp
