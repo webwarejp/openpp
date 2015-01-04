@@ -4,7 +4,7 @@ namespace Openpp\UserBundle\Security\User;
 use Fp\OpenIdBundle\Model\UserManager;
 use Fp\OpenIdBundle\Model\IdentityManagerInterface;
 use Doctrine\ORM\EntityManager;
-use Acme\UserBundle\Entity\OpenIdIdentity;
+use Openpp\UserBundle\Entity\OpenIdIdentity;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\Security\Core\Exception\InsufficientAuthenticationException;
 
@@ -35,7 +35,7 @@ class OpenIdUserManager extends UserManager
             throw new \Exception('We need your e-mail address!');
         }
         // in this example, we fetch User entities by e-mail
-        $user = $this->entityManager->getRepository('AcmeUserBundle:User')->findOneBy(array(
+        $user = $this->entityManager->getRepository('OpenppUserBundle:User')->findOneBy(array(
             'email' => $attributes['contact/email']
         ));
 

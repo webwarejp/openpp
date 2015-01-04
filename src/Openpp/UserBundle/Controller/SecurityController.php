@@ -14,7 +14,7 @@ class SecurityController extends BaseController
         $requestAttributes = $this->container->get('request')->attributes;
 
         if ('admin_login' === $requestAttributes->get('_route')) {
-            $template = sprintf('AcmeAdminBundle:Default:login.html.twig');
+            $template = sprintf('OpenppAdminBundle:Default:login.html.twig');
         } else {
             $template = sprintf('FOSUserBundle:Security:login.html.twig');
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\ToppageBundle\Tests\Controller;
+namespace Openpp\ToppageBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

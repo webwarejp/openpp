@@ -48,7 +48,8 @@ class AppKernel extends Kernel
             //new Openpp\UserBundle\AcmeUserBundle(),
             new Openpp\MessageBundle\OpenppMessageBundle(),
             new Openpp\TimelineBundle\OpenppTimelineBundle(),
-            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle()
+            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

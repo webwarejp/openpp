@@ -34,14 +34,13 @@ class PostAdmin extends BasePostAdmin{
     /**
      * {@inheritdoc}
      */
-    /*
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->with('Post', array(
                 'class' => 'col-md-8'
             ))
-            ->add('author', 'sonata_type_model_list', array(), array('admin_code' => 'application.sonata.user.admin.user'))
+            ->add('author', 'sonata_type_model_list')
             ->add('title')
             ->add('abstract', null, array('attr' => array('rows' => 5)))
             ->add('content', 'sonata_formatter_type', array(
@@ -68,7 +67,7 @@ class PostAdmin extends BasePostAdmin{
             ))
 
             ->add('publicationDateStart', 'sonata_type_datetime_picker', array('dp_side_by_side' => true))
-            ->add('commentsCloseAt', 'sonata_type_datetime_picker', array('dp_side_by_side' => true))
+            ->add('commentsCloseAt', 'sonata_type_datetime_picker', array('required' => false, 'dp_side_by_side' => true))
             ->add('commentsEnabled', null, array('required' => false))
             ->add('commentsDefaultStatus', 'sonata_news_comment_status', array('expanded' => true))
             ->end()
@@ -85,7 +84,6 @@ class PostAdmin extends BasePostAdmin{
             ->end()
         ;
     }
-    */
     /**
      * {@inheritdoc}
      */

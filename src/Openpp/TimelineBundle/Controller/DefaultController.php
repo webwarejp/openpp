@@ -38,13 +38,13 @@ class DefaultController extends Controller
             $data['nbResults'] = $timeline->getNbResults();
             $data['results'] = array();
             foreach ($timeline as $action) {
-                $data['results'][] = $this->renderView('AcmeTimelineBundle:Default:timeline_entry.html.twig', array(
+                $data['results'][] = $this->renderView('OpenppTimelineBundle:Default:timeline_entry.html.twig', array(
                     'action' => $action));
             }
             return new Response(json_encode($data), 200, array('Content-Type'=>'application/json'));
         }
         else {
-            return $this->render('AcmeTimelineBundle:Default:timeline.html.twig', array(
+            return $this->render('OpenppTimelineBundle:Default:timeline.html.twig', array(
                 'user'     => $targetUser,
                 'timeline' => $timeline,
             ));

@@ -10,7 +10,7 @@ class DefaultController extends Controller
     {
         $user = $this->getUser();
         if (!is_object($user) || !$user->hasRole('ROLE_USER')) {
-            return $this->render('AcmeToppageBundle:Default:index.html.twig');
+            return $this->render('OpenppToppageBundle:Default:index.html.twig');
         }
 
         $targetUser = $user;

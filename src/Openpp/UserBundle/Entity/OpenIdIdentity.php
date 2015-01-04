@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Fp\OpenIdBundle\Entity\UserIdentity as BaseUserIdentity;
 use Fp\OpenIdBundle\Model\UserIdentityInterface;
-use Acme\UserBundle\Entity\User;
+use Openpp\UserBundle\Entity\User;
 
 /**
  * @ORM\Entity

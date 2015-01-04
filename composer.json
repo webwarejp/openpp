@@ -9,8 +9,11 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.2.*",
+
+
+        "doctrine/orm": "~2.4",
+        "doctrine/doctrine-bundle": "~1.2",
+
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.3.*",
         "symfony/swiftmailer-bundle": "2.3.*",
@@ -27,24 +30,40 @@
         "friendsofsymfony/jsrouting-bundle": "1.5.*@dev",
         "fp/openid-bundle": "2.1.0",
         "hwi/oauth-bundle": "0.4.*@dev",
-        "sonata-project/user-bundle": "2.3.*@dev",
-        "sonata-project/admin-bundle": "2.3.*@dev",
-        "sonata-project/media-bundle": "2.2.*@dev",
-        "sonata-project/page-bundle": "2.3.*@dev",
+
+        "sonata-project/easy-extends-bundle": "~2.1",
+        "sonata-project/admin-bundle": "~2.2",
+        "sonata-project/doctrine-orm-admin-bundle": "~2.2",
+        "sonata-project/notification-bundle": "~2.2",
+        "sonata-project/media-bundle": "~2.2",
+        "sonata-project/user-bundle": "~2.2",
+        "sonata-project/cache-bundle": "~2.1",
+        "sonata-project/page-bundle": "~2.3",
+        "sonata-project/formatter-bundle": "~2.3",
         "sonata-project/news-bundle": "~2.3",
-        "sonata-project/doctrine-orm-admin-bundle": "2.3.*@dev",
-        "sonata-project/easy-extends-bundle": "2.1.*@dev",
+        "sonata-project/classification-bundle": "~2.2",
         "sonata-project/jquery-bundle": "1.8.*@dev",
-        "sonata-project/classification-bundle": "2.2.*@dev",
+
+        "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "oh/emoji-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "1.1.*@dev",
         "stephpy/timeline-bundle": "dev-master",
         "willdurand/faker-bundle": "~1.0"
     },
     "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "doctrine/migrations": "dev-master",
-        "doctrine/doctrine-migrations-bundle": "dev-master"
+        "doctrine/doctrine-migrations-bundle": "~2.0dev",
+        "doctrine/migrations": "~1.0@dev",
+        "doctrine/doctrine-fixtures-bundle": "~2.2",
+        "doctrine/data-fixtures": "~1.0@dev",
+        "phpunit/phpunit": "~4.2",
+        "guzzle/guzzle": "~3.0",
+        "behat/behat": "~2.4",
+        "behat/common-contexts": "*",
+        "behat/mink-extension": "~1.2",
+        "behat/mink-goutte-driver": "~1.0",
+        "behat/mink": "~1.5",
+        "behat/mink-browserkit-driver": "~1.1",
+        "behat/mink-selenium2-driver": "~1.1"
     },
     "scripts": {
         "post-install-cmd": [
@@ -60,6 +79,14 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-create-project-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "php bin/load_data.php"
         ]
     },
     "config": {
@@ -70,6 +97,7 @@
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
+        "symfony-assets-install": "symlink",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml",
             "keep-outdated": true
