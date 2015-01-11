@@ -51,7 +51,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-migrations-bundle": "~2.0dev",
-        "doctrine/migrations": "~1.0@dev",
+        "doctrine/migrations": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/data-fixtures": "~1.0@dev",
         "phpunit/phpunit": "~4.2",
