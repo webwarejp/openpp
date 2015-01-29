@@ -1,3 +1,22 @@
+sonata_user_security:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
+
+sonata_user_resetting:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml"
+    prefix: /resetting
+
+sonata_user_profile:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml"
+    prefix: /profile
+
+sonata_user_register:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_registration_1.xml"
+    prefix: /register
+
+sonata_user_change_password:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml"
+    prefix: /profile
+
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
@@ -10,6 +29,18 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+
+sonata_cache_cache:
+    resource: '@SonataCacheBundle/Resources/config/routing/cache.xml'
+    prefix: /
+
+sonata_page_exceptions:
+    resource: '@SonataPageBundle/Resources/config/routing/exceptions.xml'
+    prefix: /
+
+sonata_page_cache:
+    resource: '@SonataPageBundle/Resources/config/routing/cache.xml'
+    prefix: /
 
 news:
     resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
@@ -33,26 +64,6 @@ fos_message:
     resource: "@FOSMessageBundle/Resources/config/routing.xml"
     prefix: /message
 
-# FOS User
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
-
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
-
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
-
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
-
 #OAuth
 hwi_oauth_login:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
@@ -69,9 +80,9 @@ hwi_oauth_connect:
 facebook_login:
     pattern: /login/check-facebook
 
-openpp_toppage:
-    resource: "@OpenppToppageBundle/Resources/config/routing.yml"
-    prefix:   /
+#openpp_toppage:
+#    resource: "@OpenppToppageBundle/Resources/config/routing.yml"
+#    prefix:   /
 
 openpp_timeline:
     resource: "@OpenppTimelineBundle/Resources/config/routing.yml"
@@ -84,6 +95,5 @@ openpp_timeline:
 application_sonata_user_friend:
     resource: '@ApplicationSonataUserBundle/Resources/config/routing/friend.xml'
     prefix: /friend
-
 
     
