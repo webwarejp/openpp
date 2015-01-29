@@ -49,6 +49,13 @@ sonata_admin:
                 items: ~
                 icon:           '<i class="fa fa-play-circle"></i>'
                 label_catalogue: "SonataMediaBundle"
+            sonata.admin.group.site_builder:
+                label:           Site Builder
+                label_catalogue: "SonataPageBundle"
+                icon:            '<i class="fa fa-puzzle-piece"></i>'
+                items:
+                    - sonata.page.admin.page
+                    - sonata.page.admin.site
 
     assets:
         stylesheets:
