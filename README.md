@@ -13,5 +13,6 @@ Installation
     $ composer update
     $ curl -L https://github.com/yui/yuicompressor/releases/download/v2.4.8/yuicompressor-2.4.8.jar > bin/yuicompressor.jar
     $ php bin/load_data.php
+    $ chmod -R 0777 web/uploads
 
 
