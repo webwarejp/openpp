@@ -88,9 +88,9 @@ openpp_timeline:
     resource: "@OpenppTimelineBundle/Resources/config/routing.yml"
     prefix:   /
 
-#application_sonata_user_profile:
-#    resource: '@ApplicationSonataUserBundle/Resources/config/routing/profile.xml'
-#    prefix: /profile
+application_sonata_user_profile:
+    resource: '@ApplicationSonataUserBundle/Resources/config/routing/profile.xml'
+    prefix: /profile
 
 application_sonata_user_friend:
     resource: '@ApplicationSonataUserBundle/Resources/config/routing/friend.xml'
