@@ -65,8 +65,9 @@ $success = execute_commands(array(
     $bin . ' ./app/console doctrine:schema:update --force',
     $bin . '  -d memory_limit=1024M -d max_execution_time=600 ./app/console doctrine:fixtures:load --verbose --env=dev --no-debug',
     $bin . ' ./app/console sonata:news:sync-comments-count',
-    //$bin . ' ./app/console sonata:page:update-core-routes --site=all --no-debug',
-    //$bin . ' ./app/console sonata:page:create-snapshots --site=all --no-debug',
+    $bin . ' ./app/console sonata:page:create-site --no-confirmation=true --enabled=true --name=localhost --relativePath=/ --host=localhost --enabledFrom=now --enabledTo=- --default=true --locale=ja',
+    $bin . ' ./app/console sonata:page:update-core-routes --site=all --no-debug',
+    $bin . ' ./app/console sonata:page:create-snapshots --site=all --no-debug',
     $bin . ' ./app/console assets:install --symlink web',
     $bin . ' ./app/console sonata:admin:setup-acl',
     $bin . '  -d memory_limit=1024M ./app/console sonata:admin:generate-object-acl'

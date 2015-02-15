@@ -30,25 +30,18 @@ sonata_admin:
 
     dashboard:
         groups:
-            sonata.admin.group.administration:
-                            label:           sonata_administration
-                            label_catalogue: SonataAdminBundle
-                            icon:            '<i class="fa fa-cogs"></i>'
-                            items:
-                                - sonata.user.admin.user
-                                - sonata.user.admin.group
-            sonata_blog:
-                items: ~
+            sonata_content:
                 icon:            '<i class="fa fa-th"></i>'
-                label_catalogue: "SonataNewsBundle"
+                label:           Content
+                items:
+                    - sonata.news.admin.post
+                    - sonata.news.admin.comment
+                    - sonata.media.admin.media
+                    - sonata.media.admin.gallery
             sonata_classification:
                 items: ~
                 icon:            '<i class="fa fa-sitemap"></i>'
                 label_catalogue: "SonataClassificationBundle"
-            sonata_media:
-                items: ~
-                icon:           '<i class="fa fa-play-circle"></i>'
-                label_catalogue: "SonataMediaBundle"
             sonata.admin.group.site_builder:
                 label:           Site Builder
                 label_catalogue: "SonataPageBundle"
@@ -56,13 +49,19 @@ sonata_admin:
                 items:
                     - sonata.page.admin.page
                     - sonata.page.admin.site
+            sonata.admin.group.administration:
+                label:           sonata_administration
+                label_catalogue: SonataAdminBundle
+                icon:            '<i class="fa fa-cogs"></i>'
+                items:
+                    - sonata.user.admin.user
+                    - sonata.user.admin.group
 
     assets:
         stylesheets:
             - assetic/sonata_admin_css.css
             - assetic/sonata_formatter_css.css
             - assetic/sonata_jqueryui_css.css
-            - bundles/sonatademo/css/demo.css
         javascripts:
             - assetic/sonata_admin_js.js
             - assetic/sonata_jqueryui_js.js

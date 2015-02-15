@@ -28,13 +28,78 @@ sonata_page:
     ignore_uri_patterns:
         - ^/admin\/   # ignore admin route, ie route containing 'admin'
 
+    assets:
+        stylesheets:
+            - assetic/sonata_front_css.css
+        javascripts:
+            - assetic/sonata_front_js.js
+
     page_defaults:
-        homepage: {decorate: false} # disable decoration for homepage, key - is a page route
+        homepage: { decorate: false, enabled: true }
 
     default_template: default # template key from templates section, used as default for pages
+    #templates:
+    #    default:  { path: 'SonataPageBundle::layout.html.twig',          name: 'default' }
+    #    2columns: { path: 'SonataPageBundle::2columns_layout.html.twig', name: '2 columns layout' }
     templates:
-        default:  { path: 'SonataPageBundle::layout.html.twig',          name: 'default' }
-        2columns: { path: 'SonataPageBundle::2columns_layout.html.twig', name: '2 columns layout' }
+        default:
+            path: 'ApplicationSonataPageBundle::layout.html.twig'
+            name: 'default'
+            containers:
+                header:
+                    name: Header
+                content_top:
+                    name: Top content
+                content:
+                    name: Main content
+                content_bottom:
+                    name: Bottom content
+                footer:
+                    name: Footer
+            matrix:
+                layout: |
+                    HHHHHHHH
+                    TTTTTTTT
+                    CCCCCCCC
+                    BBBBBBBB
+                    FFFFFFFF
+                mapping:
+                    H: header
+                    T: content_top
+                    C: content
+                    B: content_bottom
+                    F: footer
+
+        2columns:
+            path: 'ApplicationSonataPageBundle::2columns_layout.html.twig'
+            name: '2 columns layout'
+            containers:
+                header:
+                    name: Header
+                content_top:
+                    name: Top content
+                left_col:
+                    name: Left content
+                right_col:
+                    name: Right content
+                content_bottom:
+                    name: Bottom content
+                footer:
+                    name: Footer
+            matrix:
+                layout: |
+                    HHHHHHHH
+                    TTTTTTTT
+                    LLLLRRRR
+                    BBBBBBBB
+                    FFFFFFFF
+                mapping:
+                    H: header
+                    T: content_top
+                    L: left_col
+                    R: right_col
+                    B: content_bottom
+                    F: footer
 
     # manage the http errors
     catch_exceptions:
