@@ -27,6 +27,7 @@ sonata_page:
 
     ignore_uri_patterns:
         - ^/admin\/   # ignore admin route, ie route containing 'admin'
+        - ^/api/      # ignore api route.
 
     assets:
         stylesheets:
