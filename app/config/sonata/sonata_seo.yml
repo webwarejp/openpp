@@ -1,5 +1,5 @@
 sonata_seo:
-    default:          sonata.seo.page.default
+    #default:          sonata.seo.page.default
     encoding:         UTF-8
     page:
         title:            Sonata Project
