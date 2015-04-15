@@ -26,3 +26,8 @@ sonata_api_user:
     type:         rest
     prefix:       /user
     resource:     "@SonataUserBundle/Resources/config/routing/api.xml"
+
+openpp_api_push:
+    type:         rest
+    prefix:       /push
+    resource:     "@OpenppPushNotificationBundle/Resources/config/routing/api.xml"

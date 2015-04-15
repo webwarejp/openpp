@@ -57,6 +57,8 @@ class AppKernel extends Kernel
             new Sonata\PageBundle\SonataPageBundle(),
             new Application\Sonata\PageBundle\ApplicationSonataPageBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new Openpp\PushNotificationBundle\OpenppPushNotificationBundle(),
+            new Application\Openpp\PushNotificationBundle\ApplicationOpenppPushNotificationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

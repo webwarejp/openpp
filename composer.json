@@ -34,22 +34,23 @@
 
         "sonata-project/easy-extends-bundle": "~2.1",
         "sonata-project/admin-bundle": "~2.4@dev",
-        "sonata-project/doctrine-orm-admin-bundle": "~2.3",
-        "sonata-project/notification-bundle": "~2.2",
-        "sonata-project/media-bundle": "~2.3",
-        "sonata-project/user-bundle": "~2.2",
+        "sonata-project/doctrine-orm-admin-bundle": "~2.4@dev",
+        "sonata-project/notification-bundle": "~2.3@dev",
+        "sonata-project/media-bundle": "~2.4@dev",
+        "sonata-project/user-bundle": "~2.3@dev",
         "sonata-project/cache-bundle": "~2.1",
         "sonata-project/page-bundle": "~2.4@dev",
         "sonata-project/formatter-bundle": "~2.4@dev",
-        "sonata-project/news-bundle": "~2.3",
-        "sonata-project/classification-bundle": "2.2.2",
+        "sonata-project/news-bundle": "~2.4@dev",
+        "sonata-project/classification-bundle": "~2.3@dev",
         "sonata-project/datagrid-bundle": "2.2.*@dev",
 
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "oh/emoji-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "~2.0",
         "stephpy/timeline-bundle": "dev-master",
-        "willdurand/faker-bundle": "~1.0"
+        "willdurand/faker-bundle": "~1.0",
+        "openpp/push-notification-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.3.*",

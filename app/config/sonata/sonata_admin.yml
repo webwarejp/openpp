@@ -56,6 +56,15 @@ sonata_admin:
                 items:
                     - sonata.user.admin.user
                     - sonata.user.admin.group
+            openpp.admin.group.push_notification:
+                label:           Push Notification
+                icon:            '<i class="fa fa-mobile"></i>'
+                label_catalogue: "OpenppPushNotificationBundle"
+                items:
+                    - openpp.push_notification.admin.application
+                    - openpp.push_notification.admin.device
+                    - openpp.push_notification.admin.user
+                    - openpp.push_notification.admin.tag
 
     assets:
         stylesheets:

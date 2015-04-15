@@ -80,15 +80,6 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
-        ## sonata user
-#        entity_managers:
-#            default:
-#                mappings:
-#                    ApplicationSonataNewsBundle: ~
-#                    SonataNewsBundle: ~
-#                    FOSUserBundle: ~
-#                    ApplicationSonataUserBundle: ~
-#                    SonataUserBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
