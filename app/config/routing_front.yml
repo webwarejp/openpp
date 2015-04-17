@@ -67,10 +67,6 @@ hwi_oauth_connect:
 facebook_login:
     pattern: /login/check-facebook
 
-#openpp_toppage:
-#    resource: "@OpenppToppageBundle/Resources/config/routing.yml"
-#    prefix:   /
-
 openpp_timeline:
     resource: "@OpenppTimelineBundle/Resources/config/routing.yml"
     prefix:   /

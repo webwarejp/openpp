@@ -1,3 +1,0 @@
-#acme_admin_homepage:
-#    pattern:  /admin/dashboard
-#    defaults: { _controller: AcmeAdminBundle:Default:index }

@@ -8,6 +8,7 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            // SYMFONY STANDARD EDITION
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -16,49 +17,80 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-            new FOS\RestBundle\FOSRestBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new FOS\MessageBundle\FOSMessageBundle(),
-            new Fp\OpenIdBundle\FpOpenIdBundle(),
-            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+
+            // KNP HELPER BUNDLES
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
-            new Sonata\CoreBundle\SonataCoreBundle(),
-            new Sonata\AdminBundle\SonataAdminBundle(),
-            new Sonata\BlockBundle\SonataBlockBundle(),
-            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+
+            // API
+            new FOS\RestBundle\FOSRestBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+
+            // SONATA CORE & HELPER BUNDLES
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
-            new Sonata\NewsBundle\SonataNewsBundle(),
-            new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new Sonata\IntlBundle\SonataIntlBundle(),
-            new Sonata\FormatterBundle\SonataFormatterBundle(),
-            new Sonata\MediaBundle\SonataMediaBundle(),
-            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-            new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
-            new Spy\TimelineBundle\SpyTimelineBundle(),
-            //new Openpp\ToppageBundle\OpenppToppageBundle(),
-            new Openpp\AdminBundle\OpenppAdminBundle(),
-            //new Openpp\UserBundle\AcmeUserBundle(),
-            new Openpp\MessageBundle\OpenppMessageBundle(),
-            new Openpp\TimelineBundle\OpenppTimelineBundle(),
-            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
-            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\CacheBundle\SonataCacheBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
+            new Sonata\FormatterBundle\SonataFormatterBundle(),
+            new Sonata\ClassificationBundle\SonataClassificationBundle(),
+            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Sonata\NotificationBundle\SonataNotificationBundle(),
             new Application\Sonata\NotificationBundle\ApplicationSonataNotificationBundle(),
+
+            // ADMIN
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+
+            // USER
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+
+            //OAUTH
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+
+            //OPEN ID
+            //new Fp\OpenIdBundle\FpOpenIdBundle(),
+
+            // CMF Integration
             new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle(),
+
+            // PAGE
             new Sonata\PageBundle\SonataPageBundle(),
             new Application\Sonata\PageBundle\ApplicationSonataPageBundle(),
-            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+
+            // MEDIA
+            new Sonata\MediaBundle\SonataMediaBundle(),
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+
+            // NEWS (BLOG)
+            new Sonata\NewsBundle\SonataNewsBundle(),
+            new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
+
+            // MESSAGE
+            new FOS\MessageBundle\FOSMessageBundle(),
+            new Openpp\MessageBundle\OpenppMessageBundle(),
+
+            // TIMELINE
+            new Spy\TimelineBundle\SpyTimelineBundle(),
+            new Openpp\TimelineBundle\OpenppTimelineBundle(),
+
+            // PUSH NOTIFICATION
             new Openpp\PushNotificationBundle\OpenppPushNotificationBundle(),
             new Application\Openpp\PushNotificationBundle\ApplicationOpenppPushNotificationBundle(),
+
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+
+            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
+
+            new AppBundle\AppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
