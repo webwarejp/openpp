@@ -1,0 +1,6 @@
+services:
+    application_fos_oauth_server.admin.client:
+        class: Application\FOS\OAuthServerBundle\Admin\ClientAdmin
+        arguments: [~, Application\FOS\OAuthServerBundle\Entity\Client, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Client}

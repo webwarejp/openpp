@@ -1,0 +1,10 @@
+# FOSOAuthServerBundle Configuration
+fos_oauth_server:
+    db_driver: orm
+    client_class:        Application\FOS\OAuthServerBundle\Entity\Client
+    access_token_class:  Application\FOS\OAuthServerBundle\Entity\AccessToken
+    refresh_token_class: Application\FOS\OAuthServerBundle\Entity\RefreshToken
+    auth_code_class:     Application\FOS\OAuthServerBundle\Entity\AuthCode
+
+    service:
+        user_provider: fos_user.user_manager

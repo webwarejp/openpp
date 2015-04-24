@@ -53,6 +53,8 @@ class AppKernel extends Kernel
 
             //OAUTH
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
+            new Application\FOS\OAuthServerBundle\ApplicationFOSOAuthServerBundle(),
 
             //OPEN ID
             //new Fp\OpenIdBundle\FpOpenIdBundle(),

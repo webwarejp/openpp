@@ -1,5 +1,5 @@
 security:
-    ## sonata
+
     acl:
         connection: default 
     encoders:
@@ -83,16 +83,47 @@ security:
             context:      application
             switch_user:  true
 
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            form_login:
+                provider: fos_user_provider
+                csrf_provider: form.csrf_provider
+                login_path:   sonata_user_security_login
+                check_path:   sonata_user_security_check
+            anonymous: true
+
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false # can be omitted as its default value
+
     access_control:
-        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY } 
+        # URL of FOSUserBundle which need to be available to anonymous users
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login_openid$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        # Admin login page needs to be access without credential
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        # Top page
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+#        - { path: ^/login_openid$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        # Secured part of the site
+        # This config requires being logged for the whole site and having the admin role for the admin part.
+        # It also secures the shop checkout process
+        # Change these rules to adapt them to your needs
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
 
 parameters:
     in_memory.user.pass: passward
