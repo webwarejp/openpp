@@ -76,6 +76,7 @@ sonata_admin:
             - assetic/sonata_admin_css.css
             - assetic/sonata_formatter_css.css
             - assetic/sonata_jqueryui_css.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css
         javascripts:
             - assetic/sonata_admin_js.js
             - assetic/sonata_jqueryui_js.js
