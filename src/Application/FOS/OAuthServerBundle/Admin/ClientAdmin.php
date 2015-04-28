@@ -16,11 +16,9 @@ class ClientAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('randomId')
-            ->add('redirectUris')
-            ->add('secret')
+            ->add('name')
+            ->add('publicId', 'doctrine_orm_string')
             ->add('allowedGrantTypes')
-            ->add('id')
         ;
     }
 
@@ -30,11 +28,9 @@ class ClientAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('randomId')
-            ->add('redirectUris')
-            ->add('secret')
-            ->add('allowedGrantTypes')
             ->add('id')
+            ->add('name')
+            ->add('redirectUris')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -51,11 +47,8 @@ class ClientAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('randomId')
-            ->add('redirectUris')
-            ->add('secret')
-            ->add('allowedGrantTypes')
-            ->add('id')
+            ->add('name')
+            ->add('redirectUris', 'sonata_type_native_collection', array('type' => 'url'), array('allow_add' => true, 'allow_delete' => true))
         ;
     }
 
@@ -65,11 +58,12 @@ class ClientAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('randomId')
+            ->add('id')
+            ->add('name')
             ->add('redirectUris')
+            ->add('publicId')
             ->add('secret')
             ->add('allowedGrantTypes')
-            ->add('id')
         ;
     }
 }

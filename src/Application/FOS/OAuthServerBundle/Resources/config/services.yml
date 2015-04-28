@@ -4,3 +4,4 @@ services:
         arguments: [~, Application\FOS\OAuthServerBundle\Entity\Client, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Client}
+
