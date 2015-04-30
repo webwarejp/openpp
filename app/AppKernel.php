@@ -52,7 +52,7 @@ class AppKernel extends Kernel
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
             //OAUTH
-            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            //new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new Application\FOS\OAuthServerBundle\ApplicationFOSOAuthServerBundle(),
 

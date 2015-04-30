@@ -22,7 +22,7 @@ imports:
     - { resource: sonata/sonata_notification.yml }
     - { resource: sonata/sonata_page.yml }
     # HWI
-    - { resource: hwi/hwi_oauth.yml }
+#    - { resource: hwi/hwi_oauth.yml }
 
 
 framework:

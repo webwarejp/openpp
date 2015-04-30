@@ -56,19 +56,43 @@ security:
                 target:         sonata_user_admin_security_login
             anonymous:        true
             context:          application
+
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            form_login:
+                provider: fos_user_provider
+                csrf_provider: form.csrf_provider
+                login_path:   /oauth/v2/auth/login
+                check_path:   /oauth/v2/auth/login_check
+                use_referer:  true
+            anonymous: true
+            context:      application
+
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false # can be omitted as its default value
+            context:    application
+
         # フロント側
         main:
             pattern: .*
             form_login:
                 provider:      front_provider
                 csrf_provider: form.csrf_provider
-            oauth:
-                resource_owners:
-                    facebook:   "/login/check-facebook"
-                login_path:   /login
-                failure_path: /login
-                oauth_user_provider:
-                    service: application.sonata.user.oauth.provider
+                use_referer:  true
+#            oauth:
+#                resource_owners:
+#                    facebook:   "/login/check-facebook"
+#                login_path:   /login
+#                failure_path: /login
+#                oauth_user_provider:
+#                    service: application.sonata.user.oauth.provider
 #            #OpenID
 #            fp_openid:
 #                create_user_if_not_exists: true # so createUserFromIdentity method will be called
@@ -82,25 +106,6 @@ security:
             anonymous:    true
             context:      application
             switch_user:  true
-
-        oauth_token:
-            pattern:    ^/oauth/v2/token
-            security:   false
-
-        oauth_authorize:
-            pattern:    ^/oauth/v2/auth
-            form_login:
-                provider: fos_user_provider
-                csrf_provider: form.csrf_provider
-                login_path:   sonata_user_security_login
-                check_path:   sonata_user_security_check
-            anonymous: true
-
-        api:
-            pattern:    ^/api
-            fos_oauth:  true
-            stateless:  true
-            anonymous:  false # can be omitted as its default value
 
     access_control:
         # URL of FOSUserBundle which need to be available to anonymous users
@@ -117,6 +122,9 @@ security:
         - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
 #        - { path: ^/login_openid$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/oauth/v2/auth/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/oauth/v2/auth/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # Secured part of the site
         # This config requires being logged for the whole site and having the admin role for the admin part.

@@ -52,20 +52,20 @@ fos_message:
     prefix: /message
 
 #OAuth
-hwi_oauth_login:
-    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-    prefix:   /connect
-
-hwi_oauth_redirect:
-    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix:   /connect
-
-hwi_oauth_connect:
-    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
-    prefix:   /connect
-
-facebook_login:
-    pattern: /login/check-facebook
+#hwi_oauth_login:
+#    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+#    prefix:   /connect
+#
+#hwi_oauth_redirect:
+#    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+#    prefix:   /connect
+#
+#hwi_oauth_connect:
+#    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+#    prefix:   /connect
+#
+#facebook_login:
+#    pattern: /login/check-facebook
 
 openpp_timeline:
     resource: "@OpenppTimelineBundle/Resources/config/routing.yml"
@@ -84,4 +84,8 @@ fos_oauth_server_token:
 
 fos_oauth_server_authorize:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+
+fos_oauth_server_authorize_login:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
+    prefix: /oauth/v2/auth
 
