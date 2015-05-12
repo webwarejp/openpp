@@ -83,6 +83,7 @@ class AppKernel extends Kernel
             // TIMELINE
             new Spy\TimelineBundle\SpyTimelineBundle(),
             new Openpp\TimelineBundle\OpenppTimelineBundle(),
+            new Application\Openpp\TimelineBundle\ApplicationOpenppTimelineBundle(),
 
             // PUSH NOTIFICATION
             new Openpp\PushNotificationBundle\OpenppPushNotificationBundle(),

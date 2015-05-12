@@ -10,7 +10,6 @@ imports:
     # Sonata Core Bundles
     - { resource: sonata/sonata_block.yml }
     - { resource: sonata/sonata_formatter.yml }
-    - { resource: sonata/sonata_timeline.yml }
     - { resource: sonata/sonata_core.yml }
     - { resource: sonata/sonata_cache.yml }
     - { resource: sonata/sonata_seo.yml }
@@ -21,6 +20,8 @@ imports:
     - { resource: sonata/sonata_user.yml }
     - { resource: sonata/sonata_notification.yml }
     - { resource: sonata/sonata_page.yml }
+    # Spy
+    - { resource: spy/spy_timeline.yml }
     # HWI
 #    - { resource: hwi/hwi_oauth.yml }
 

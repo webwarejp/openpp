@@ -48,8 +48,8 @@
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "oh/emoji-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "~2.0",
-        "stephpy/timeline-bundle": "dev-master",
         "willdurand/faker-bundle": "~1.0",
+        "openpp/timeline-bundle": "dev-master",
         "openpp/push-notification-bundle": "dev-master"
     },
     "require-dev": {

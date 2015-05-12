@@ -68,7 +68,7 @@ fos_message:
 #    pattern: /login/check-facebook
 
 openpp_timeline:
-    resource: "@OpenppTimelineBundle/Resources/config/routing.yml"
+    resource: "@OpenppTimelineBundle/Resources/config/routing/routing.xml"
     prefix:   /
 
 application_sonata_user_profile:

@@ -4,10 +4,10 @@ spy_timeline:
             object_manager: doctrine.orm.entity_manager
             classes:
                 query_builder: ~ # Spy\TimelineBundle\Driver\ORM\QueryBuilder\QueryBuilder
-                timeline:  Openpp\TimelineBundle\Entity\Timeline
-                action:    Openpp\TimelineBundle\Entity\Action
-                component: Openpp\TimelineBundle\Entity\Component
-                action_component: Openpp\TimelineBundle\Entity\ActionComponent
+                timeline:  Application\Openpp\TimelineBundle\Entity\Timeline
+                action:    Application\Openpp\TimelineBundle\Entity\Action
+                component: Application\Openpp\TimelineBundle\Entity\Component
+                action_component: Application\Openpp\TimelineBundle\Entity\ActionComponent
     filters:
         data_hydrator:
             priority:             20
@@ -16,7 +16,7 @@ spy_timeline:
             locators:
                 - spy_timeline.filter.data_hydrator.locator.doctrine_orm
     render:
-        path:     'AcmeTimelineBundle:Timeline'
+        path:     'OpenppTimelineBundle:Timeline'
         resources:
-            - 'AcmeTimelineBundle:Timeline:components.html.twig'
+            - 'OpenppTimelineBundle:Timeline:components.html.twig'
     paginator: ~
