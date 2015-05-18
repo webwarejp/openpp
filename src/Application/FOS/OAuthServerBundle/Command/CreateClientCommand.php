@@ -29,6 +29,12 @@ class CreateClientCommand extends ContainerAwareCommand
                 'Sets allowed grant type for client. Use this option multiple times to set multiple grant types..',
                 null
         )
+        ->addArgument(
+                'name',
+                null,
+                InputArgument::REQUIRED,
+                'Sets the client name. It is used for the display.'
+        )
         ->setHelp(
                 <<<EOT
                     The <info>%command.name%</info>command creates a new client.
@@ -43,6 +49,7 @@ EOT
     {
         $clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default');
         $client = $clientManager->createClient();
+        $client->setName($input->getArgument('name'));
         $client->setRedirectUris($input->getOption('redirect-uri'));
         $client->setAllowedGrantTypes($input->getOption('grant-type'));
         $clientManager->updateClient($client);
