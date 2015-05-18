@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="oauth_client")
- * @ORM\Entity
+ * @ORM\Entity @HasLifecycleCallbacks
  */
 class Client extends BaseClient
 {
@@ -45,12 +45,18 @@ class Client extends BaseClient
         // your own logic
     }
 
+    /**
+     * @ORM\PrePersist
+     */
     public function prePersist()
     {
         $this->setCreatedAt(new \DateTime);
         $this->setUpdatedAt(new \DateTime);
     }
 
+    /**
+     * @ORM\PreUpdate
+     */
     public function preUpdate()
     {
         $this->setUpdatedAt(new \DateTime);
