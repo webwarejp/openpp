@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="oauth_client")
- * @ORM\Entity @HasLifecycleCallbacks
+ * @ORM\Entity @ORM\HasLifecycleCallbacks
  */
 class Client extends BaseClient
 {
