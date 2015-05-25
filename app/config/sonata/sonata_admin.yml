@@ -70,6 +70,7 @@ sonata_admin:
                     - openpp.push_notification.admin.device
                     - openpp.push_notification.admin.user
                     - openpp.push_notification.admin.tag
+                    - openpp.push_notification.admin.condition
 
     assets:
         stylesheets:

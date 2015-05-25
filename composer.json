@@ -50,8 +50,7 @@
         "knplabs/knp-menu-bundle": "~2.0",
         "willdurand/faker-bundle": "~1.0",
         "openpp/timeline-bundle": "dev-master",
-        "openpp/push-notification-bundle": "dev-master",
-        "creof/doctrine2-spatial": "dev-master"
+        "openpp/push-notification-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.3.*",

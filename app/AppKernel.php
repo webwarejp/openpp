@@ -93,6 +93,7 @@ class AppKernel extends Kernel
 
             new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
 
+            new Openpp\MapBundle\OpenppMapBundle(),
             new AppBundle\AppBundle(),
         );
 
