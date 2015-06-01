@@ -7,6 +7,8 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ClientAdmin extends Admin
 {
@@ -48,7 +50,7 @@ class ClientAdmin extends Admin
     {
         $formMapper
             ->add('name')
-            ->add('redirectUris', 'sonata_type_native_collection', array('type' => 'url'), array('allow_add' => true, 'allow_delete' => true))
+            ->add('redirectUris', 'sonata_type_native_collection', array('type' => 'url', 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false))
         ;
     }
 
