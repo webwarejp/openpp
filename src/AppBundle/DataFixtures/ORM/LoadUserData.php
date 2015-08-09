@@ -24,7 +24,7 @@ class LoadUserData extends AbstractFixture implements ContainerAwareInterface, O
     private $container;
     function getOrder()
     {
-        return 1;
+        return 2;
     }
     public function setContainer(ContainerInterface $container = null)
     {
