@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a5ce1567ee6394854e29cc2e1b603027",
+    "hash": "914b0c983ed8fb87db5a1f11fd4cb8e2",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1187,23 +1187,23 @@
         },
         {
             "name": "friendsofsymfony/oauth-server-bundle",
-            "version": "dev-master",
+            "version": "1.4.2",
             "target-dir": "FOS/OAuthServerBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSOAuthServerBundle.git",
-                "reference": "0c72d8baf707dce59c59a4daa1549c06e510bbed"
+                "reference": "9e15c229eff547443d686445d629e9356ab0672e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSOAuthServerBundle/zipball/0c72d8baf707dce59c59a4daa1549c06e510bbed",
-                "reference": "0c72d8baf707dce59c59a4daa1549c06e510bbed",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSOAuthServerBundle/zipball/9e15c229eff547443d686445d629e9356ab0672e",
+                "reference": "9e15c229eff547443d686445d629e9356ab0672e",
                 "shasum": ""
             },
             "require": {
                 "friendsofsymfony/oauth2-php": "~1.1.0",
                 "php": ">=5.3.3",
-                "symfony/framework-bundle": "~2.2",
+                "symfony/framework-bundle": "~2.1",
                 "symfony/security-bundle": "~2.1"
             },
             "require-dev": {
@@ -1212,7 +1212,7 @@
                 "doctrine/orm": ">=2.2,<2.5-dev",
                 "symfony/class-loader": "~2.1",
                 "symfony/yaml": "~2.1",
-                "willdurand/propel-typehintable-behavior": "~1.0,>1.0.4"
+                "willdurand/propel-typehintable-behavior": "1.0.*"
             },
             "suggest": {
                 "doctrine/doctrine-bundle": "*",
@@ -1252,7 +1252,7 @@
                 "oauth2",
                 "server"
             ],
-            "time": "2015-05-01 22:00:52"
+            "time": "2014-10-31 13:44:14"
         },
         {
             "name": "friendsofsymfony/oauth2-php",
@@ -1515,7 +1515,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/28ba40ea8a2463af57be7d70e35707ae5dc59931",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/a5288a44ad526b7a6bea972d2aeb2a024e238978",
                 "reference": "28ba40ea8a2463af57be7d70e35707ae5dc59931",
                 "shasum": ""
             },
@@ -3270,7 +3270,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/65a726a95720af7500af72f154c038875b60bbea",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/a0801f1a9af944a2164530d4be43aade53ab6a64",
                 "reference": "65a726a95720af7500af72f154c038875b60bbea",
                 "shasum": ""
             },
@@ -3553,7 +3553,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/edd5f24121455b5a91d801b1bd70a699a5d45e64",
+                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/0c37ac24a83302d973825070f3b9ddf67e1d8599",
                 "reference": "edd5f24121455b5a91d801b1bd70a699a5d45e64",
                 "shasum": ""
             },
@@ -3688,7 +3688,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/fec0147e99b3db467152d148126e2f894c9369a2",
+                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/cc42f2801011d7ebc65edda451a2efa4b4d1fbb9",
                 "reference": "fec0147e99b3db467152d148126e2f894c9369a2",
                 "shasum": ""
             },
@@ -3794,7 +3794,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/2cd709777b571f7f7e294ad4575f38955e6da963",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/4fcec62fab9487c5479519f5d663c3d1d588a10f",
                 "reference": "2cd709777b571f7f7e294ad4575f38955e6da963",
                 "shasum": ""
             },
@@ -3987,7 +3987,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/0a3a911c12f0cc9772c7bf1bb17be98afb6ed114",
+                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/b854ef71eabc0785fadca2d3dd6b477bf63ca4b8",
                 "reference": "0a3a911c12f0cc9772c7bf1bb17be98afb6ed114",
                 "shasum": ""
             },
@@ -4165,7 +4165,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/d6cb0062cc4f77393959607c2d95137d5f71c57d",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/76a32bf9bb0f9d6ba0d2a31ffedf27cb7d519901",
                 "reference": "d6cb0062cc4f77393959607c2d95137d5f71c57d",
                 "shasum": ""
             },
@@ -4257,7 +4257,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataNewsBundle/zipball/1a7660702efbea08575ce1a2486e7f146643572b",
+                "url": "https://api.github.com/repos/sonata-project/SonataNewsBundle/zipball/70534860b79f10ae77aca99c6c406a0bb04fc924",
                 "reference": "1a7660702efbea08575ce1a2486e7f146643572b",
                 "shasum": ""
             },
@@ -4411,7 +4411,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataPageBundle/zipball/0b23b1d8dcabda41d99ba73c4aa33c3b300d4f76",
+                "url": "https://api.github.com/repos/sonata-project/SonataPageBundle/zipball/c1ba33adb260e00625ec71542a3e8c5c11ca85ad",
                 "reference": "0b23b1d8dcabda41d99ba73c4aa33c3b300d4f76",
                 "shasum": ""
             },
@@ -4554,7 +4554,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/0779677f667a3377ef2a9722c5d126d23fb18604",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/ec09378a100dfe6285562e864c2286ef9104059e",
                 "reference": "0779677f667a3377ef2a9722c5d126d23fb18604",
                 "shasum": ""
             },
@@ -6165,7 +6165,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/b62316b4cf489495b4a84059bafc9e43a6a4d2bc",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/087f738cf8f984807efa44e6405d28b5f6009d2f",
                 "reference": "b62316b4cf489495b4a84059bafc9e43a6a4d2bc",
                 "shasum": ""
             },
@@ -7531,7 +7531,6 @@
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "friendsofsymfony/rest-bundle": 20,
-        "friendsofsymfony/oauth-server-bundle": 20,
         "friendsofsymfony/message-bundle": 20,
         "friendsofsymfony/comment-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 20,
@@ -7546,9 +7545,10 @@
         "sonata-project/news-bundle": 20,
         "sonata-project/classification-bundle": 20,
         "sonata-project/datagrid-bundle": 20,
-        "oh/emoji-bundle": 20,
         "openpp/timeline-bundle": 20,
         "openpp/push-notification-bundle": 20,
+        "friendsofsymfony/oauth-server-bundle": 20,
+        "oh/emoji-bundle": 20,
         "doctrine/migrations": 20,
         "doctrine/data-fixtures": 20,
         "doctrine/doctrine-migrations-bundle": 20

@@ -25,7 +25,6 @@
 
         "friendsofsymfony/user-bundle": "1.3.*@dev",
         "friendsofsymfony/rest-bundle": "1.2.*@dev",
-        "friendsofsymfony/oauth-server-bundle": "dev-master",
         "friendsofsymfony/message-bundle": "1.2.*@dev",
         "friendsofsymfony/comment-bundle": "2.0.*@dev",
         "friendsofsymfony/jsrouting-bundle": "1.5.*@dev",
@@ -46,11 +45,12 @@
         "sonata-project/datagrid-bundle": "2.2.*@dev",
 
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
-        "oh/emoji-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "~2.0",
         "willdurand/faker-bundle": "~1.0",
         "openpp/timeline-bundle": "dev-master",
-        "openpp/push-notification-bundle": "dev-master"
+        "openpp/push-notification-bundle": "dev-master",
+        "friendsofsymfony/oauth-server-bundle": "^1.4@dev",
+        "oh/emoji-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.3.*",
