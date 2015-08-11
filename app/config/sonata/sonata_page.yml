@@ -30,7 +30,7 @@ sonata_page:
     ignore_uri_patterns:
         - ^/admin(.*)
         - ^/api/(.*)
-        - ^/login(.*)
+#        - ^/login(.*)
         - ^/oauth(.*)
 
     assets:

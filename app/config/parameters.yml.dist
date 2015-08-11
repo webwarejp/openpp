@@ -15,3 +15,5 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
     sonata.news.admin.post.class: Application\Sonata\NewsBundle\Admin\PostAdmin
     sonata.classification.admin.category.class: Application\Sonata\ClassificationBundle\Admin\CategoryAdmin
+    sonata.news.manager.comment.class: AppBundle\Entity\CommentManager
+    sonata.news.manager.post.class: AppBundle\Entity\PostManager
