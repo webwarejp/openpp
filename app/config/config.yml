@@ -24,6 +24,8 @@ imports:
     - { resource: spy/spy_timeline.yml }
     # HWI
 #    - { resource: hwi/hwi_oauth.yml }
+    # JMS
+    - { resource: jms/jms_serializer.yml }
 
 
 framework:
@@ -107,8 +109,6 @@ sensio_framework_extra:
     view:    { annotations: false }  # for FOSRestBundle
     router:  { annotations: true }
     request: { converters:  true }
-
-
 
 
 #fp_open_id:
