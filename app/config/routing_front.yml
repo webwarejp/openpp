@@ -80,12 +80,11 @@ application_sonata_user_friend:
     prefix: /friend
 
 fos_oauth_server_token:
-    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+    resource:     "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
 
 fos_oauth_server_authorize:
-    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+    resource:     "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
 
-fos_oauth_server_authorize_login:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
-    prefix: /oauth/v2/auth
-
+fos_oauth_server_security:
+    resource:     "@ApplicationFOSOAuthServerBundle/Resources/config/routing/security.xml"
+    prefix: /

@@ -1,0 +1,4 @@
+Application\FOS\OAuthServerBundle\Form\Model\Authorize:
+    properties:
+        allowAccess:
+            - "True": { message: "Please check the checkbox to allow access to your profile.", groups: [Authorize]}

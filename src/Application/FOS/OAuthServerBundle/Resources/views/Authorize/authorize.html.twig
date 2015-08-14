@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}OAuth2 Authorize{% endblock %}
+
+{% block body %}
+<div class="form">
+    {{ form_start(form, {'class': 'vertical','method' : 'POST', 'action': action}) }}
+    <div class="form_title">
+        Grant access to {{ client.getName }}?
+    </div>
+    {{ form_widget(form)  }}
+    <div class="form_button">
+        <input type="submit" value="Authorize" />
+    </div>
+    {{ form_end(form) }}
+
+</div>
+{% endblock %}

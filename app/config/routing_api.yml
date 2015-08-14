@@ -31,3 +31,4 @@ openpp_api_push:
     type:         rest
     prefix:       /push
     resource:     "@OpenppPushNotificationBundle/Resources/config/routing/api.xml"
+

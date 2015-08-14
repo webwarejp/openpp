@@ -13,7 +13,7 @@ sonata_page:
     ignore_route_patterns:
         - ^(.*)admin(.*)   # ignore admin route, ie route containing 'admin'
         - ^_(.*)          # ignore symfony routes
-        - ^/login(.*)
+        #- ^/login(.*)
         - ^/oauth(.*)
 
     ignore_routes:

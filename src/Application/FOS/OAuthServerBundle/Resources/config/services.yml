@@ -5,3 +5,23 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Client}
 
+    application_fos_oauth_server.authorize.form_type:
+        class: Application\FOS\OAuthServerBundle\Form\Type\AuthorizeFormType
+
+    application_fos_oauth_server.authorize.form:
+        class: Symfony\Component\Form\Form
+        factory: ["@form.factory", createNamed]
+        arguments:
+            - application_fos_oauth_server_auth
+            - "@application_fos_oauth_server.authorize.form_type"
+
+    application_fos_oauth_server.authorize.form_handler:
+        class: Application\FOS\OAuthServerBundle\Form\Handler\AuthorizeFormHandler
+        scope: request
+        arguments:
+            - "@application_fos_oauth_server.authorize.form"
+            - "@request"
+            - "@security.token_storage"
+            - "@fos_oauth_server.server"
+
+

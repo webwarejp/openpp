@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use OAuth2\OAuth2;
 
 class ClientAdmin extends Admin
 {
@@ -33,6 +34,7 @@ class ClientAdmin extends Admin
             ->add('id')
             ->add('name')
             ->add('redirectUris')
+            ->add('allowedGrantTypes')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -51,7 +53,17 @@ class ClientAdmin extends Admin
         $formMapper
             ->add('name')
             ->add('redirectUris', 'sonata_type_native_collection', array('type' => 'url', 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false))
-        ;
+            ->add('allowedGrantTypes', 'sonata_type_native_collection', array('type' => 'choice', 'allow_add' => true, 'allow_delete' => true, 'by_reference' => false
+                ,'options'  => array(
+                    'choices'   => array(
+                        OAuth2::GRANT_TYPE_AUTH_CODE                    => "Authorization Code Grant Flow"
+                        , OAuth2::GRANT_TYPE_IMPLICIT                   => "Implicit Grant Flow"
+                        , OAuth2::GRANT_TYPE_USER_CREDENTIALS           => "Resource Owner Password Credentials Grant Flow"
+                        , OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS         => "Client Credentials Grant Flow"
+                        )
+                    )
+                )
+            );
     }
 
     /**

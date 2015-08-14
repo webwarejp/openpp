@@ -117,7 +117,7 @@ class LoadPageData extends AbstractFixture implements ContainerAwareInterface, O
         $text->setSetting('content', <<<CONTENT
 <div class="col-md-3 welcome"><h2>Hello World</h2></div>
 <div class="col-md-9">
-<a href="/register/">register</a>
+FOS, Sonata 系バンドルを組み合わせて、Push通知が便利に使えるAPIベースのプロジェクトを目指します。
 <p>
 </p>
 <p>

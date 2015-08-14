@@ -1,19 +1,18 @@
-=======
 Openpp
 ======
-This project is a simple social system based on the Sonata Project.
+FOS/Sonata プロジェクトの各種Bundle を組み合わせたシステムです。
 
-http://sonata-project.org/
+[FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle) +
+[FOSOAuthServerBundle](https://github.com/FriendsOfSymfony/FOSOAuthServerBundle) + 
+[FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle) + 
+[SonataAdminBundle](https://github.com/sonata-project/SonataAdminBundle) + 
+[SonataPageBundle](https://github.com/sonata-project/SonataPageBundle) +
+PUSH(Microsoft Azure)
 
-Installation
-============
-
-    $ git clone https://github.com/webwarejp/openpp.git
-    $ cd openpp
-    $ composer install
-    $ curl -L https://github.com/yui/yuicompressor/releases/download/v2.4.8/yuicompressor-2.4.8.jar > bin/yuicompressor.jar
-    //create db
-    $ php bin/load_data.php
-    $ chmod -R 0777 web/uploads
+[sonata project](http://sonata-project.org/)
 
 
+
+## Documentation
+
+[Read the Documentation for master](/app/Resources/doc/index.md)

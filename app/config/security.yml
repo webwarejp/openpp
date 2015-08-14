@@ -26,20 +26,23 @@ security:
         #    id: acme.user.openid_user_manager # the name of the service
 
         # FOSUserBundle
-        fos_user_provider:
+        #fos_userbundle:
+        #    id: fos_user.user_manager
+        fos_userbundle:
             id: fos_user.user_provider.username
 
-        front_provider:
-            chain:
-                providers: [ fos_user_provider, in_memory ]
+        #front_provider:
+        #    chain:
+        #        providers: [ fos_user_provider, in_memory ]
 
         admin_provider:
             chain:
-                providers: [ fos_user_provider, in_memory ]
+                providers: [ fos_userbundle, in_memory ]
 
     firewalls:
         admin:
             pattern:           /admin/(.*)
+            context:        user
             form_login:
                 provider:       admin_provider
                 csrf_provider:  form.csrf_provider
@@ -57,55 +60,47 @@ security:
             anonymous:        true
             context:          application
 
-        oauth_token:
-            pattern:    ^/oauth/v2/token
-            security:   false
-
-        oauth_authorize:
-            pattern:    ^/oauth/v2/auth
-            form_login:
-                provider: fos_user_provider
-                csrf_provider: form.csrf_provider
-                login_path:   /oauth/v2/auth/login
-                check_path:   /oauth/v2/auth/login_check
-                use_referer:  true
-            anonymous: true
-            context:      application
-
+        #
+        # http://blog.logicexception.com/2012/04/securing-syfmony2-rest-service-wiith.html
         api:
             pattern:    ^/api
             fos_oauth:  true
             stateless:  true
             anonymous:  false # can be omitted as its default value
-            context:    application
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            form_login:
+                provider:     fos_userbundle
+                check_path:   application_fos_oauth_server_auth_login_check
+                login_path:   application_fos_oauth_server_auth_login
+#                check_path:   /oauth/v2/auth_login_check
+#                login_path:   /oauth/v2/auth_login
+            anonymous: true
+
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+        ###
+
+
 
         # フロント側
         main:
-            pattern: .*
+            pattern:      .*
+            context:        user
             form_login:
-                provider:      front_provider
-                csrf_provider: form.csrf_provider
-                use_referer:  true
-#            oauth:
-#                resource_owners:
-#                    facebook:   "/login/check-facebook"
-#                login_path:   /login
-#                failure_path: /login
-#                oauth_user_provider:
-#                    service: application.sonata.user.oauth.provider
-#            #OpenID
-#            fp_openid:
-#                create_user_if_not_exists: true # so createUserFromIdentity method will be called
-#                provider: openid_user_provider # cf below
-#                # previously we used 'contact/email' field. So we have to request it!
-#                # Please note that all OpenID providers may not be able to provide all fields.
-#                # check the desired provider documentation
-#                required_attributes:
-#                    - contact/email 
-            logout:       true
+                provider:       fos_userbundle
+                login_path:     /login
+                use_forward:    false
+                check_path:     /login_check
+                failure_path:   null
+            logout:
+                path: /logout
+                # We set invalidate_session to false because we want basket
+                # to be fully persisted even when user logout and login again
+                invalidate_session: false
+                handlers: ['sonata.page.cms_manager_selector']
             anonymous:    true
-            context:      application
-            switch_user:  true
 
     access_control:
         # URL of FOSUserBundle which need to be available to anonymous users
@@ -118,13 +113,10 @@ security:
         - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
-        # Top page
-        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-
 #        - { path: ^/login_openid$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-
-        - { path: ^/oauth/v2/auth/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/oauth/v2/auth/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        #OAuth
+        #- { path: ^/oauth/v2/auth_login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/oauth/v2/auth_login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # Secured part of the site
         # This config requires being logged for the whole site and having the admin role for the admin part.

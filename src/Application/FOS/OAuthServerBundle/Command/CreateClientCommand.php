@@ -31,9 +31,9 @@ class CreateClientCommand extends ContainerAwareCommand
         )
         ->addArgument(
                 'name',
-                null,
                 InputArgument::REQUIRED,
-                'Sets the client name. It is used for the display.'
+                'Sets the client name. It is used for the display.',
+                null
         )
         ->setHelp(
                 <<<EOT
