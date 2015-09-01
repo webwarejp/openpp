@@ -5,23 +5,10 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Client}
 
-    application_fos_oauth_server.authorize.form_type:
-        class: Application\FOS\OAuthServerBundle\Form\Type\AuthorizeFormType
-
-    application_fos_oauth_server.authorize.form:
-        class: Symfony\Component\Form\Form
-        factory: ["@form.factory", createNamed]
+    application_fos_oauth_server.oauth_event_listener:
+        class: Application\FOS\OAuthServerBundle\EventListener\OAuthEventListener
         arguments:
-            - application_fos_oauth_server_auth
-            - "@application_fos_oauth_server.authorize.form_type"
-
-    application_fos_oauth_server.authorize.form_handler:
-        class: Application\FOS\OAuthServerBundle\Form\Handler\AuthorizeFormHandler
-        scope: request
-        arguments:
-            - "@application_fos_oauth_server.authorize.form"
-            - "@request"
-            - "@security.token_storage"
-            - "@fos_oauth_server.server"
-
-
+            - @service_container
+        tags:
+            - { name: kernel.event_listener, event: fos_oauth_server.pre_authorization_process, method: onPreAuthorizationProcess }
+            - { name: kernel.event_listener, event: fos_oauth_server.post_authorization_process, method: onPostAuthorizationProcess }

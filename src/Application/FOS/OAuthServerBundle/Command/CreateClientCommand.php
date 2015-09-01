@@ -8,8 +8,15 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class CreateClientCommand
+ * @package Application\FOS\OAuthServerBundle\Command
+ */
 class CreateClientCommand extends ContainerAwareCommand
 {
+    /**
+     *
+     */
     protected function configure()
     {
         $this
@@ -29,6 +36,13 @@ class CreateClientCommand extends ContainerAwareCommand
                 'Sets allowed grant type for client. Use this option multiple times to set multiple grant types..',
                 null
         )
+        ->addOption(
+            'private',
+            null,
+            InputOption::VALUE_REQUIRED,
+            'Set private network client',
+            null
+        )
         ->addArgument(
                 'name',
                 InputArgument::REQUIRED,
@@ -45,12 +59,17 @@ EOT
         );
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default');
         $client = $clientManager->createClient();
         $client->setName($input->getArgument('name'));
         $client->setRedirectUris($input->getOption('redirect-uri'));
+        $client->setPrivate($input->getOption('private'));
         $client->setAllowedGrantTypes($input->getOption('grant-type'));
         $clientManager->updateClient($client);
         $output->writeln(

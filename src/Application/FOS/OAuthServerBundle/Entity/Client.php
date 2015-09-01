@@ -21,14 +21,21 @@ class Client extends BaseClient
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     protected $name;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="private", type="boolean", nullable=false,options={"default": false})
+     */
+    protected $private;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     protected $createdAt;
 
@@ -71,6 +78,7 @@ class Client extends BaseClient
     {
         $this->name = $name;
     }
+
 
     /**
      * Gets name.
@@ -121,4 +129,32 @@ class Client extends BaseClient
     {
         return $this->updatedAt;
     }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isPrivate()
+    {
+        return $this->private;
+    }
+
+    /**
+     * @param boolean $private
+     */
+    public function setPrivate($private)
+    {
+        $this->private = $private;
+    }
+
+
 }

@@ -1,18 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: taniguchi
- * Date: 8/12/15
- * Time: 19:40
- */
 namespace Application\FOS\OAuthServerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 
+/**
+ * Class SecurityController
+ * @package Application\FOS\OAuthServerBundle\Controller
+ */
 class SecurityController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function loginAction(Request $request)
     {
         $session = $request->getSession();
@@ -38,6 +40,9 @@ class SecurityController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     */
     public function loginCheckAction(Request $request)
     {
 
