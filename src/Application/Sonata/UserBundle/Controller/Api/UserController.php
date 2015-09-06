@@ -8,8 +8,9 @@ use Sonata\UserBundle\Model\UserInterface;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sonata\UserBundle\Controller\Api\UserController as BaseUserController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class UserController extends BaseUserController
+class UserController extends Controller
 {
     /**
      * @ApiDoc(
@@ -18,7 +19,7 @@ class UserController extends BaseUserController
      */
     public function getMeAction()
     {
-        $tokenManager = $this->get('fos_oauth_server.access_token_manager.default');
+        $tokenManager = $this->get('fos_oauth_server.access_token_manager');
         $accessToken = $tokenManager->findTokenByToken(
             $this->get('security.context')->getToken()->getToken()
         );

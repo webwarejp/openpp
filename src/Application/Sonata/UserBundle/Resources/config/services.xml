@@ -9,6 +9,9 @@
 
     <services>
         <service id="application.sonata.user.controller.api.user" class="Application\Sonata\UserBundle\Controller\Api\UserController" >
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
             <argument type="service" id="sonata.user.user_manager" />
             <argument type="service" id="sonata.user.group_manager" />
             <argument type="service" id="form.factory" />
