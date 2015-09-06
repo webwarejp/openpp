@@ -7,7 +7,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sonata\UserBundle\Model\UserInterface;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
-use Sonata\UserBundle\Controller\Api\UserController as BaseUserController;
+//use Sonata\UserBundle\Controller\Api\UserController as BaseUserController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UserController extends Controller
@@ -23,6 +23,7 @@ class UserController extends Controller
         $accessToken = $tokenManager->findTokenByToken(
             $this->get('security.context')->getToken()->getToken()
         );
+        /* @var $me UserInterface */
         $me = $accessToken->getUser();
 
         if (null === $me) {
@@ -33,7 +34,10 @@ class UserController extends Controller
         }
 
         $view = View::create();
-        $view->setData(array('uid' => $me->getId()))
+        $view->setData([
+            'uid' => $me->getId()
+            , 'username' => $me->getUsername()
+        ])
              ->setFormat('json');
 
         return $view;
