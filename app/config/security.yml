@@ -69,6 +69,7 @@ security:
             anonymous:  false # can be omitted as its default value
         oauth_authorize:
             pattern:    ^/oauth/v2/auth
+            context:      primary_auth
             form_login:
                 provider:     fos_userbundle
                 check_path:   application_fos_oauth_server_auth_login_check
@@ -87,7 +88,7 @@ security:
         # フロント側
         main:
             pattern:      .*
-            context:        user
+            context:      primary_auth
             form_login:
                 provider:       fos_userbundle
                 login_path:     /login
