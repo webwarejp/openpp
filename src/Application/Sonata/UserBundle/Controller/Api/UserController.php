@@ -9,10 +9,14 @@ use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 //use Sonata\UserBundle\Controller\Api\UserController as BaseUserController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class UserController extends Controller
 {
     /**
+     * OAuth2 認証後、ユーザー情報提供エンドポイント
+     *
+     * @Security("has_role('ROLE_API_USER_ME')")
      * @ApiDoc(
      *  description="Retrieves a specific user",
      * )
