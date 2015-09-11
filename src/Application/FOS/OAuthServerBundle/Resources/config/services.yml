@@ -8,7 +8,7 @@ services:
     application_fos_oauth_server.oauth_event_listener:
         class: Application\FOS\OAuthServerBundle\EventListener\OAuthEventListener
         arguments:
-            - @service_container
+            - @doctrine.orm.entity_manager
         tags:
             - { name: kernel.event_listener, event: fos_oauth_server.pre_authorization_process, method: onPreAuthorizationProcess }
             - { name: kernel.event_listener, event: fos_oauth_server.post_authorization_process, method: onPostAuthorizationProcess }

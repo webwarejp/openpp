@@ -4,6 +4,7 @@ namespace Application\FOS\OAuthServerBundle\Entity;
 
 use FOS\OAuthServerBundle\Entity\Client as BaseClient;
 use Doctrine\ORM\Mapping as ORM;
+use OAuth2\OAuth2;
 
 /**
  * @ORM\Table(name="oauth_client")
@@ -156,5 +157,20 @@ class Client extends BaseClient
         $this->private = $private;
     }
 
+    /**
+     * check secret
+     * if client credential grant flow, set scope
+     *
+     * @param $secret
+     * @return true || array('scope' => scope)
+     */
+    public function checkSecret($secret)
+    {
+        if(in_array(OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS, $this->getAllowedGrantTypes()))
+        {
+            return array('scope' => 'API_USER');
+        }
+        return (null === $this->secret || $secret === $this->secret);
+    }
 
 }

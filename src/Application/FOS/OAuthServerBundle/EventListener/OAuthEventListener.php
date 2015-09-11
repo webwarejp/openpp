@@ -4,7 +4,7 @@ namespace Application\FOS\OAuthServerBundle\EventListener;
 
 use Application\FOS\OAuthServerBundle\Entity\UserClient;
 use FOS\OAuthServerBundle\Event\OAuthEvent;
-use Symfony\Component\DependencyInjection\Container;
+use Doctrine\ORM\EntityManager;
 
 /**
  * Class OAuthEventListener
@@ -13,21 +13,16 @@ use Symfony\Component\DependencyInjection\Container;
 class OAuthEventListener
 {
     /**
-     * @var Container
-     */
-    private $container;
-    /**
      * @var \Doctrine\ORM\EntityManager
      */
     private $em;
 
     /**
-     * @param Container $container
+     * @param EntityManager $entityManager
      */
-    public function __construct(Container $container)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->container = $container;
-        $this->em = $this->container->get('doctrine')->getManager();
+        $this->em = $entityManager;
     }
 
     /**
