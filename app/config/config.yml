@@ -5,7 +5,6 @@ imports:
     # FriendOfSymfony Bundles
     - { resource: fos/fos_user.yml }
     - { resource: fos/fos_rest.yml }
-    - { resource: fos/fos_message.yml }
     - { resource: fos/fos_oauth_server.yml }
     # Sonata Core Bundles
     - { resource: sonata/sonata_block.yml }
@@ -20,8 +19,6 @@ imports:
     - { resource: sonata/sonata_user.yml }
     - { resource: sonata/sonata_notification.yml }
     - { resource: sonata/sonata_page.yml }
-    # Spy
-    - { resource: spy/spy_timeline.yml }
     # HWI
 #    - { resource: hwi/hwi_oauth.yml }
     # JMS

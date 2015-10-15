@@ -25,8 +25,6 @@
 
         "friendsofsymfony/user-bundle": "1.3.*@dev",
         "friendsofsymfony/rest-bundle": "1.2.*@dev",
-        "friendsofsymfony/message-bundle": "1.2.*@dev",
-        "friendsofsymfony/comment-bundle": "2.0.*@dev",
         "friendsofsymfony/jsrouting-bundle": "1.5.*@dev",
         "fp/openid-bundle": "2.1.0",
         "hwi/oauth-bundle": "0.4.*@dev",
@@ -47,10 +45,8 @@
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "knplabs/knp-menu-bundle": "~2.0",
         "willdurand/faker-bundle": "~1.0",
-        "openpp/timeline-bundle": "dev-master",
         "openpp/push-notification-bundle": "dev-master",
-        "friendsofsymfony/oauth-server-bundle": "^1.4@dev",
-        "oh/emoji-bundle": "dev-master"
+        "friendsofsymfony/oauth-server-bundle": "^1.4@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.3.*",

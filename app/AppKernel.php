@@ -76,15 +76,6 @@ class AppKernel extends Kernel
             new Sonata\NewsBundle\SonataNewsBundle(),
             new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
 
-            // MESSAGE
-            new FOS\MessageBundle\FOSMessageBundle(),
-            new Openpp\MessageBundle\OpenppMessageBundle(),
-
-            // TIMELINE
-            new Spy\TimelineBundle\SpyTimelineBundle(),
-            new Openpp\TimelineBundle\OpenppTimelineBundle(),
-            new Application\Openpp\TimelineBundle\ApplicationOpenppTimelineBundle(),
-
             // PUSH NOTIFICATION
             new Openpp\PushNotificationBundle\OpenppPushNotificationBundle(),
             new Application\Openpp\PushNotificationBundle\ApplicationOpenppPushNotificationBundle(),
