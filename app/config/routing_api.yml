@@ -7,11 +7,6 @@ sonata_api_classification:
     prefix:       /classification
     resource:     "@SonataClassificationBundle/Resources/config/routing/api.xml"
 
-sonata_api_news:
-    type:         rest
-    prefix:       /news
-    resource:     "@SonataNewsBundle/Resources/config/routing/api.xml"
-
 sonata_api_media:
     type:         rest
     prefix:       /media

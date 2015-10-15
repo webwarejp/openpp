@@ -38,7 +38,6 @@
         "sonata-project/cache-bundle": "~2.1",
         "sonata-project/page-bundle": "~2.4@dev",
         "sonata-project/formatter-bundle": "~2.4@dev",
-        "sonata-project/news-bundle": "~2.4@dev",
         "sonata-project/classification-bundle": "~2.3@dev",
         "sonata-project/datagrid-bundle": "2.2.*@dev",
 

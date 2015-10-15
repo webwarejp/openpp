@@ -34,8 +34,6 @@ sonata_admin:
                 icon:            '<i class="fa fa-th"></i>'
                 label:           Content
                 items:
-                    - sonata.news.admin.post
-                    - sonata.news.admin.comment
                     - sonata.media.admin.media
                     - sonata.media.admin.gallery
             sonata_classification:

@@ -29,10 +29,6 @@ sonata_page_cache:
     resource: '@SonataPageBundle/Resources/config/routing/cache.xml'
     prefix: /
 
-news:
-    resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
-    prefix: /news
-
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
     prefix: /media/gallery
@@ -67,9 +63,9 @@ application_sonata_user_profile:
     resource: '@ApplicationSonataUserBundle/Resources/config/routing/profile.xml'
     prefix: /profile
 
-application_sonata_user_friend:
-    resource: '@ApplicationSonataUserBundle/Resources/config/routing/friend.xml'
-    prefix: /friend
+#application_sonata_user_friend:
+#    resource: '@ApplicationSonataUserBundle/Resources/config/routing/friend.xml'
+#    prefix: /friend
 
 fos_oauth_server_token:
     resource:     "@FOSOAuthServerBundle/Resources/config/routing/token.xml"

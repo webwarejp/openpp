@@ -31,10 +31,6 @@ sonata_block:
         sonata.media.block.gallery:
         sonata.media.block.feature_media:
 
-        # NewsBundle's Blocks
-        sonata.news.block.recent_comments:
-        sonata.news.block.recent_posts:
-
         # UserBundle's Blocks
         sonata.user.block.account:
             cache: sonata.page.cache.js_async

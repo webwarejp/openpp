@@ -72,10 +72,6 @@ class AppKernel extends Kernel
 
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
-            // NEWS (BLOG)
-            new Sonata\NewsBundle\SonataNewsBundle(),
-            new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
-
             // PUSH NOTIFICATION
             new Openpp\PushNotificationBundle\OpenppPushNotificationBundle(),
             new Application\Openpp\PushNotificationBundle\ApplicationOpenppPushNotificationBundle(),
