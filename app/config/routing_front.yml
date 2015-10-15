@@ -40,9 +40,6 @@ media:
 #fp_openid_security:
 #    resource: "@FpOpenIdBundle/Resources/config/routing/security.xml"
 
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
-
 #OAuth
 #hwi_oauth_login:
 #    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
@@ -62,10 +59,6 @@ fos_js_routing:
 application_sonata_user_profile:
     resource: '@ApplicationSonataUserBundle/Resources/config/routing/profile.xml'
     prefix: /profile
-
-#application_sonata_user_friend:
-#    resource: '@ApplicationSonataUserBundle/Resources/config/routing/friend.xml'
-#    prefix: /friend
 
 fos_oauth_server_token:
     resource:     "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
