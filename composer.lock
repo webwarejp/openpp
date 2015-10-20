@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7b653dd63b238c5ac71c0468a872fa8e",
-    "content-hash": "63de6daaa4fe5ef832d45d596e450eee",
+    "hash": "0159f9a8785630a18210f0b01179abfc",
+    "content-hash": "950a0e966f7856b5fd1fcfaac6726af6",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2473,21 +2473,21 @@
         },
         {
             "name": "openpp/map-bundle",
-            "version": "dev-master",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webwarejp/OpenppMapBundle.git",
-                "reference": "9df399a2c2607bc4714a60ea719877d1282e3a77"
+                "reference": "e6bf4ff49708d3054dd65484ca832b78724b4313"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webwarejp/OpenppMapBundle/zipball/9df399a2c2607bc4714a60ea719877d1282e3a77",
-                "reference": "9df399a2c2607bc4714a60ea719877d1282e3a77",
+                "url": "https://api.github.com/repos/webwarejp/OpenppMapBundle/zipball/e6bf4ff49708d3054dd65484ca832b78724b4313",
+                "reference": "e6bf4ff49708d3054dd65484ca832b78724b4313",
                 "shasum": ""
             },
             "require": {
                 "creof/doctrine2-spatial": "dev-master",
-                "symfony/symfony": "~2.3"
+                "symfony/symfony": "~2.7"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -2510,11 +2510,11 @@
                 "map",
                 "openpp"
             ],
-            "time": "2015-07-02 07:26:16"
+            "time": "2015-10-20 08:20:49"
         },
         {
             "name": "openpp/notificationhubs-rest-php",
-            "version": "dev-master",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webwarejp/notificationhubs-rest-php.git",
@@ -2555,28 +2555,28 @@
         },
         {
             "name": "openpp/push-notification-bundle",
-            "version": "dev-master",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webwarejp/OpenppPushNotificationBundle.git",
-                "reference": "c66e1c8936b7ace0597dc7ef9fce158e30eddde9"
+                "reference": "6ad33232aac5f45ea95a9b1a87824948e6bdb183"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webwarejp/OpenppPushNotificationBundle/zipball/c66e1c8936b7ace0597dc7ef9fce158e30eddde9",
-                "reference": "c66e1c8936b7ace0597dc7ef9fce158e30eddde9",
+                "url": "https://api.github.com/repos/webwarejp/OpenppPushNotificationBundle/zipball/6ad33232aac5f45ea95a9b1a87824948e6bdb183",
+                "reference": "6ad33232aac5f45ea95a9b1a87824948e6bdb183",
                 "shasum": ""
             },
             "require": {
                 "creof/doctrine2-spatial": "dev-master",
                 "friendsofsymfony/rest-bundle": "~1.1",
                 "nelmio/api-doc-bundle": "~2.4",
-                "openpp/map-bundle": "dev-master",
-                "openpp/notificationhubs-rest-php": "dev-master",
+                "openpp/map-bundle": "~0.2",
+                "openpp/notificationhubs-rest-php": "~0.2",
                 "sonata-project/admin-bundle": "dev-master",
                 "sonata-project/easy-extends-bundle": "~2.1",
                 "sonata-project/notification-bundle": "~2.2,>2.2.4",
-                "symfony/symfony": "~2.3"
+                "symfony/symfony": "~2.7"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -2600,7 +2600,7 @@
                 "openpp",
                 "push"
             ],
-            "time": "2015-07-21 07:11:01"
+            "time": "2015-10-20 08:26:54"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2742,17 +2742,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.31",
+            "version": "v3.0.32",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "3a900814bd57bf20f9453ae81ff8772bc95d7fff"
+                "reference": "e46293aa6dd94f054c500ef990538d822c763ebd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/3a900814bd57bf20f9453ae81ff8772bc95d7fff",
-                "reference": "3a900814bd57bf20f9453ae81ff8772bc95d7fff",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/e46293aa6dd94f054c500ef990538d822c763ebd",
+                "reference": "e46293aa6dd94f054c500ef990538d822c763ebd",
                 "shasum": ""
             },
             "require": {
@@ -2798,7 +2798,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-08-03 10:07:12"
+            "time": "2015-10-20 06:53:22"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -3972,12 +3972,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataPageBundle.git",
-                "reference": "08e0d483c64d91219acd10cd85f3cadd5cc2fecd"
+                "reference": "dd9d5a9dfab18707a981ff694ac5843cd9bf662a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataPageBundle/zipball/08e0d483c64d91219acd10cd85f3cadd5cc2fecd",
-                "reference": "08e0d483c64d91219acd10cd85f3cadd5cc2fecd",
+                "url": "https://api.github.com/repos/sonata-project/SonataPageBundle/zipball/dd9d5a9dfab18707a981ff694ac5843cd9bf662a",
+                "reference": "dd9d5a9dfab18707a981ff694ac5843cd9bf662a",
                 "shasum": ""
             },
             "require": {
@@ -4041,7 +4041,7 @@
                 "page",
                 "sonata"
             ],
-            "time": "2015-10-19 14:03:15"
+            "time": "2015-10-20 07:41:37"
         },
         {
             "name": "sonata-project/seo-bundle",
@@ -7024,7 +7024,6 @@
         "sonata-project/formatter-bundle": 20,
         "sonata-project/classification-bundle": 20,
         "sonata-project/datagrid-bundle": 20,
-        "openpp/push-notification-bundle": 20,
         "doctrine/migrations": 20,
         "doctrine/data-fixtures": 20,
         "doctrine/doctrine-migrations-bundle": 20
