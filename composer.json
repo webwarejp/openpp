@@ -100,9 +100,6 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml",
             "keep-outdated": true
-        },
-        "branch-alias": {
-            "dev-master": "2.6-dev"
         }
     }
 }
