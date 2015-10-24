@@ -4,21 +4,20 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
+        "psr-4": {
+            "": "src/"
+        }
     },
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*",
-
-        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
-        "doctrine/dbal": "<2.5",
+        "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
-
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "~3.0,>=3.0.12",
-        "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
+        "sensio/distribution-bundle": "~4.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
 
 
@@ -26,7 +25,6 @@
         "friendsofsymfony/rest-bundle": "~1.7",
         "friendsofsymfony/oauth-server-bundle": "~1.4",
         "hwi/oauth-bundle": "~0.3",
-
         "sonata-project/easy-extends-bundle": "~2.1",
         "sonata-project/admin-bundle": "~2.4@dev",
         "sonata-project/doctrine-orm-admin-bundle": "~2.4@dev",
@@ -38,13 +36,13 @@
         "sonata-project/formatter-bundle": "~2.4@dev",
         "sonata-project/classification-bundle": "~2.3@dev",
         "sonata-project/datagrid-bundle": "2.2.*@dev",
-
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "knplabs/knp-menu-bundle": "~2.0",
         "openpp/push-notification-bundle": "~0.2"
     },
     "require-dev": {
-        "sensio/generator-bundle": "2.3.*",
+        "sensio/generator-bundle": "~2.3",
+
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/data-fixtures": "~1.0@dev",
@@ -104,9 +102,6 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml",
             "keep-outdated": true
-        },
-        "branch-alias": {
-            "dev-master": "2.6-dev"
         }
     }
 }
