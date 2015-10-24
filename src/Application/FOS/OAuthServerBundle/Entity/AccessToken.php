@@ -26,7 +26,7 @@ class AccessToken extends BaseAccessToken
 
     /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id",referencedColumnName="id",nullable=false)
+     * @ORM\JoinColumn(name="user_id",referencedColumnName="id")
      */
     protected $user;
 }
