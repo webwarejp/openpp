@@ -27,3 +27,7 @@ openpp_api_push:
     prefix:       /push
     resource:     "@OpenppPushNotificationBundle/Resources/config/routing/api.xml"
 
+openpp_api_oauth_verify:
+    type:         rest
+    prefix:       /verify
+    resource:     Application\FOS\OAuthServerBundle\Controller\Api\VerifyController
