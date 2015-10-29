@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0708143255045fe8d4aa8cdef5b96383",
-    "content-hash": "e3126ed3c6652f77f661c8f863fdacd1",
+    "hash": "e951023f29a3709bd4c918222b70c91c",
+    "content-hash": "28869ffc64b2c5c6613b5467d0da297a",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2574,7 +2574,7 @@
         },
         {
             "name": "openpp/oauth-server-bundle",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webwarejp/OpenppOAuthServerBundle.git",
@@ -7082,7 +7082,6 @@
         "sonata-project/formatter-bundle": 20,
         "sonata-project/classification-bundle": 20,
         "sonata-project/datagrid-bundle": 20,
-        "openpp/oauth-server-bundle": 20,
         "doctrine/migrations": 20,
         "doctrine/data-fixtures": 20,
         "doctrine/doctrine-migrations-bundle": 20

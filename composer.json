@@ -38,7 +38,7 @@
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "knplabs/knp-menu-bundle": "~2.0",
         "openpp/push-notification-bundle": "~0.2",
-        "openpp/oauth-server-bundle": "dev-master"
+        "openpp/oauth-server-bundle": "~0.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
