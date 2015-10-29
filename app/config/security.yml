@@ -72,10 +72,8 @@ security:
             context:      primary_auth
             form_login:
                 provider:     fos_userbundle
-                check_path:   application_fos_oauth_server_auth_login_check
-                login_path:   application_fos_oauth_server_auth_login
-#                check_path:   /oauth/v2/auth_login_check
-#                login_path:   /oauth/v2/auth_login
+                check_path:   /oauth/v2/auth_login_check
+                login_path:   /oauth/v2/auth_login
             anonymous: true
 
         oauth_token:

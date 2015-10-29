@@ -67,5 +67,5 @@ fos_oauth_server_authorize:
     resource:     "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
 
 fos_oauth_server_security:
-    resource:     "@ApplicationFOSOAuthServerBundle/Resources/config/routing/security.xml"
+    resource:     "@OpenppOAuthServerBundle/Resources/config/routing/security.xml"
     prefix: /

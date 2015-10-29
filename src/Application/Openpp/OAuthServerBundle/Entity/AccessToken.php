@@ -1,13 +1,13 @@
 <?php
 
-namespace Application\FOS\OAuthServerBundle\Entity;
+namespace Application\Openpp\OAuthServerBundle\Entity;
 
-use FOS\OAuthServerBundle\Entity\AccessToken as BaseAccessToken;
 use Doctrine\ORM\Mapping as ORM;
+use Openpp\OAuthServerBundle\Entity\AccessToken as BaseAccessToken;
 
 /**
  * @ORM\Table(name="oauth_access_token")
- * @ORM\Entity(repositoryClass="Application\FOS\OAuthServerBundle\Entity\AccessTokenRepository")
+ * @ORM\Entity
  */
 class AccessToken extends BaseAccessToken
 {
@@ -19,7 +19,7 @@ class AccessToken extends BaseAccessToken
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Client")
+     * @ORM\ManyToOne(targetEntity="Openpp\OAuthServerBundle\Entity\Client")
      * @ORM\JoinColumn(name="client_id",referencedColumnName="id",nullable=false)
      */
     protected $client;
@@ -29,4 +29,5 @@ class AccessToken extends BaseAccessToken
      * @ORM\JoinColumn(name="user_id",referencedColumnName="id")
      */
     protected $user;
+
 }

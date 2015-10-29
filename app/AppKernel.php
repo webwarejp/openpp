@@ -50,13 +50,10 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
-            //OAUTH
-            //new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            //OAUTH Server
             new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
-            new Application\FOS\OAuthServerBundle\ApplicationFOSOAuthServerBundle(),
-
-            //OPEN ID
-            //new Fp\OpenIdBundle\FpOpenIdBundle(),
+            new Openpp\OAuthServerBundle\OpenppOAuthServerBundle(),
+            new Application\Openpp\OAuthServerBundle\ApplicationOpenppOAuthServerBundle(),
 
             // CMF Integration
             new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle(),

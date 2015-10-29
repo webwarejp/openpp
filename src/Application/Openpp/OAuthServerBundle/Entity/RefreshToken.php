@@ -1,9 +1,9 @@
 <?php
 
-namespace Application\FOS\OAuthServerBundle\Entity;
+namespace Application\Openpp\OAuthServerBundle\Entity;
 
-use FOS\OAuthServerBundle\Entity\RefreshToken as BaseRefreshToken;
 use Doctrine\ORM\Mapping as ORM;
+use Openpp\OAuthServerBundle\Entity\RefreshToken as BaseRefreshToken;
 
 /**
  * @ORM\Table(name="oauth_refresh_token")
@@ -19,7 +19,7 @@ class RefreshToken extends BaseRefreshToken
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Client")
+     * @ORM\ManyToOne(targetEntity="Openpp\OAuthServerBundle\Entity\Client")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $client;
@@ -28,4 +28,5 @@ class RefreshToken extends BaseRefreshToken
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
      */
     protected $user;
+
 }

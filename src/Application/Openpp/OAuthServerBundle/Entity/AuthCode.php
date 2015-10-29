@@ -1,9 +1,9 @@
 <?php
 
-namespace Application\FOS\OAuthServerBundle\Entity;
+namespace Application\Openpp\OAuthServerBundle\Entity;
 
-use FOS\OAuthServerBundle\Entity\AuthCode as BaseAuthCode;
 use Doctrine\ORM\Mapping as ORM;
+use Openpp\OAuthServerBundle\Entity\AuthCode as BaseAuthCode;
 
 /**
  * @ORM\Table(name="oauth_auth_code")
@@ -19,7 +19,7 @@ class AuthCode extends BaseAuthCode
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Client")
+     * @ORM\ManyToOne(targetEntity="Openpp\OAuthServerBundle\Entity\Client")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $client;

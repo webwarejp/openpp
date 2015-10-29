@@ -17,17 +17,27 @@ sonata_api_notification:
     prefix:       /notification
     resource:     "@SonataNotificationBundle/Resources/config/routing/api.xml"
 
-sonata_api_user:
-    type:         rest
-    prefix:       /user
-    resource:     "@SonataUserBundle/Resources/config/routing/api.xml"
+#sonata_api_user:
+#    type:         rest
+#    prefix:       /user
+#    resource:     "@SonataUserBundle/Resources/config/routing/api.xml"
 
 openpp_api_push:
     type:         rest
     prefix:       /push
     resource:     "@OpenppPushNotificationBundle/Resources/config/routing/api.xml"
 
+#openpp_api_oauth_verify:
+#    type:         rest
+#    prefix:       /verify
+#    resource:     Openpp\OAuthServerBundle\Controller\Api\VerifyController
+
+openpp_api_oauth_user:
+    type:          rest
+    prefix:        /user
+    resource:     "@OpenppOAuthServerBundle/Resources/config/routing/api/user.xml"
+
 openpp_api_oauth_verify:
-    type:         rest
-    prefix:       /verify
-    resource:     Application\FOS\OAuthServerBundle\Controller\Api\VerifyController
+    type:          rest
+    prefix:        /verify
+    resource:     "@OpenppOAuthServerBundle/Resources/config/routing/api/verify.xml"
