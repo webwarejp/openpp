@@ -8,7 +8,7 @@ fos_oauth_server:
             supported_scopes: api_user_me api_user_anon api_push_device
 
 openpp_oauth_server:
-    client_class:        Openpp\OAuthServerBundle\Entity\Client
+    client_class:        Application\Openpp\OAuthServerBundle\Entity\Client
     access_token_class:  Application\Openpp\OAuthServerBundle\Entity\AccessToken
     refresh_token_class: Application\Openpp\OAuthServerBundle\Entity\RefreshToken
     auth_code_class:     Application\Openpp\OAuthServerBundle\Entity\AuthCode
