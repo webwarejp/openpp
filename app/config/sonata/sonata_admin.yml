@@ -58,7 +58,7 @@ sonata_admin:
                 label:           OAuth
                 icon:            '<i class="fa fa-cogs"></i>'
                 items:
-                    - application_fos_oauth_server.admin.client
+                    - openpp_oauth_server.admin.client
             openpp.admin.group.push_notification:
                 label:           Push Notification
                 icon:            '<i class="fa fa-mobile"></i>'
